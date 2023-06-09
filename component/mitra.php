@@ -4,37 +4,31 @@ require_once 'blog.php';
 $querySelect = mysqli_query($koneksi, "SELECT * FROM section WHERE id = 4");
 $data = mysqli_fetch_assoc($querySelect);
 ?>
-    <!-- mitra -->
-    <section id="mitra" class="mb-0">
-        <div class="container">
-            <div class="title text-center py-5">
-                <h1 class="position-relative d-inline-block"><?=$data['bagian']?></h1>
-            </div>
-
-            <div class="mitra-logos text-center">
-                <div class="tokopedia">
-                    <img width="612" height="612" src="https://img.icons8.com/nolan/128/tokopedia.png"
-                        alt="tokopedia" />
-                </div>
-                <div class="grab">
-                    <img width="612" height="612" src="https://img.icons8.com/plasticine/100/grab-superapp.png"
-                        alt="grab-superapp" />
-                </div>
-                <div class="facebook">
-                    <img width="612" height="612" src="https://img.icons8.com/nolan/612/facebook-circled.png"
-                        alt="facebook-circled" />
-                </div>
-                <div class="ibm">
-                    <img width="612" height="612" src="https://img.icons8.com/ios-filled/50/ibm.png" alt="ibm" />
-                </div>
-                <div class="google">
-                    <img width="612" height="612" src="https://img.icons8.com/nolan/512/google-logo.png"
-                        alt="google-logo" />
-                </div>
-                <div class="microsoft">
-                    <img width="612" height="612" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
-                </div>
-            </div>
+<!-- mitra -->
+<section id="mitra" class="mb-0">
+    <div class="container">
+        <div class="title text-center py-5">
+            <h1 class="position-relative d-inline-block"><?= $data['bagian'] ?></h1>
         </div>
-    </section>
-    <!-- akhir mitra -->
+        <div class="mitra-logos text-center">
+            <?php
+            $querySelectMitra = mysqli_query($koneksi, "SELECT * FROM mitra");
+            while ($data = mysqli_fetch_array($querySelectMitra)) {
+            ?>
+                <div class="<?=$data['nama']?>">
+                <!-- https://img.icons8.com/ios-filled/50/ibm.png -->
+                    <img width="612" height="612" src="<?=$url?>/img/<?=$data['foto']?>" alt="<?=$data['nama']?>" />
+                </div>
+            <?php
+            }
+            ?>
+            <!-- <div class="google">
+                <img width="612" height="612" src="https://img.icons8.com/nolan/512/google-logo.png" alt="google-logo" />
+            </div>
+            <div class="microsoft">
+                <img width="612" height="612" src="https://img.icons8.com/color/48/microsoft.png" alt="microsoft" />
+            </div> -->
+        </div>
+    </div>
+</section>
+<!-- akhir mitra -->

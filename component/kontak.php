@@ -1,11 +1,13 @@
 <?php
 require_once 'config.php';
 require_once 'tentang-kami.php';
+$querySelect = mysqli_query($koneksi, "SELECT * FROM section WHERE id = 10");
+$data = mysqli_fetch_assoc($querySelect);
 ?>
     <!-- kontak -->
     <section class="kontak" id="kontak">
         <div class="title text-center py-5">
-            <h1 class="position-relative d-inline-block">Kontak Kami</h1>
+            <h1 class="position-relative d-inline-block"><?=$data['bagian']?></h1>
         </div>
         <div class="container">
             <div class="row">
