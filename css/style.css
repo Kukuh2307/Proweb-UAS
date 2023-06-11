@@ -286,7 +286,7 @@ ul.social-icons li {
 
 /* header */
 #header::before {
-    background: url(http://localhost/PrakwebUas/img/1.jpeg) top/cover no-repeat;
+    background: url(../img/1.jpeg) top/cover no-repeat;
     content: "";
     position: absolute;
     top: 0;

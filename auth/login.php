@@ -30,15 +30,15 @@
                 <form id="login" tabindex="500" action="proses-login.php" method="post">
                     <h3>Login</h3>
                     <div class="mail">
-                        <input type="mail" name="">
+                        <input type="email" name="username">
                         <label>Mail or Username</label>
                     </div>
                     <div class="passwd">
-                        <input type="password" name="">
+                        <input type="password" name="password">
                         <label>Password</label>
                     </div>
                     <div class="submit">
-                        <button class="dark">Login</button>
+                        <button class="dark" name="login">Login</button>
                     </div>
                 </form>
                 <form id="register" tabindex="502">

@@ -1,4 +1,12 @@
 <?php
+session_start();
+// cek session
+if(!isset($_SESSION['Login'])){
+    header("location:../index.php");
+    exit;
+} else {
+    $keterangan = $_SESSION['Username'];
+}
 require_once 'config.php';
 require_once 'header.php';
 ?>
@@ -35,8 +43,15 @@ require_once 'header.php';
                             <a class="btn btn-link" href="#"><i class="fa-solid fa-cart-shopping"></i> <span
                                     class="badge badge-danger">0</span></a>
                         </li>
+                        <?php
+                        if(isset($keterangan)){
+                            $keterangan = $_SESSION['Username'];
+                        } else{
+                            $keterangan = "Masuk / Daftar";
+                        }
+                        ?>
                         <li class="nav-item ml-md-3">
-                            <a class="btn btn-primary" href="#"><i class="fa-solid fa-user"></i> Masuk / Daftar</a>
+                            <a class="btn btn-primary" href="#"><i class="fa-solid fa-user"></i> <?=$keterangan?></a>
                         </li>
                     </ul>
                 </div>

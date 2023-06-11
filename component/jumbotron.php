@@ -4,7 +4,7 @@ require_once 'navbar.php';
 ?>
 <!-- header -->
 <header id="header" class="vh-100 carousel slide" data-ride="carousel" style="padding-top: 240px; padding-bottom: 210px;">
-    <div class="container h-100 d-flex align-items-center carousel-inner">
+    <div class="container d-flex align-items-center carousel-inner">
         <?php
         $querySelect = mysqli_query($koneksi, "SELECT * FROM jumbotron");
         $jumlah = mysqli_num_rows($querySelect);

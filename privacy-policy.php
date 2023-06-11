@@ -10,7 +10,7 @@ $data = mysqli_fetch_assoc($querySelect);
             <div class="col-lg-8 offset-lg-2">
                 <h2 class="text-center"><?=$data['bagian']?></h2>
                 <?php
-                $querySelectKebijakanPribadi = mysqli_query($koneksi, "SELECT * FROM kebijakanpribadi");
+                $querySelectKebijakanPribadi = mysqli_query($koneksi, "SELECT * FROM kebijakanpribadi   ");
                 $data = mysqli_fetch_array($querySelectKebijakanPribadi);
                 echo htmlspecialchars_decode($data['deskripsi']);
                 ?>
