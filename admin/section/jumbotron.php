@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="<?= $main_url ?>/siswa/add-siswa.php" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Jumbotron</a>
+                    <a href="<?= $url ?>/admin/route-admin.php?msg=addjumbotron" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Jumbotron</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover" id="datatablesSimple">
@@ -19,6 +19,7 @@
                                 <th scope="col"><center>Judul</center></th>
                                 <th scope="col"><center>Deskripsi</center></th>
                                 <th scope="col"><center>Tombol</center></th>
+                                <th scope="col"><center>Opsi</center></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,8 +35,8 @@
                                 <td align="left"><?=$data['heading2']?></td>
                                 <td align="left"><?=$data['tombol']?></td>
                                 <td align="left">
-                                    <a href="edit-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="hapus-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editjumbotron&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="hapus-jumbotron.php?id=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php

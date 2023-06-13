@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="<?= $main_url ?>/siswa/add-siswa.php" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Barang</a>
+                    <a href="<?= $url ?>/admin/route-admin.php?msg=addbarang" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Barang</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover" id="datatablesSimple">
@@ -22,6 +22,8 @@
                                 <th scope="col"><center>Rating</center></th>
                                 <th scope="col"><center>Deskripsi</center></th>
                                 <th scope="col"><center>Harga</center></th>
+                                <th scope="col"><center>Stok</center></th>
+                                <th scope="col"><center>Opsi</center></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,15 +36,16 @@
                             <tr>
                                 <th scope="row"><?=$no++?></th>
                                 <td align="left">
-                                    <img src="<?= $url ?>/img/<?=$data['foto']?>.jpeg" alt="barang" width="60" height="60">
+                                    <img src="<?= $url ?>/img/<?=$data['foto']?>" alt="barang" width="60" height="60">
                                 </td>
                                 <td align="left"><?=$data['nama']?></td>
                                 <td align="left"><?=$data['kategori']?></td>
                                 <td align="left"><?=$data['rating']?></td>
                                 <td align="left"><?=$data['deskripsi']?></td>
                                 <td align="left"><?=$data['harga']?></td>
+                                <td align="left"><?=$data['stok']?></td>
                                 <td align="left">
-                                    <a href="edit-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editbarang&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
                                     <a href="hapus-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

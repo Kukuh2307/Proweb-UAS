@@ -14,6 +14,7 @@
                             <tr>
                                 <th scope="col">No.</th>
                                 <th scope="col"><center>Deskripsi</center></th>
+                                <th scope="col"><center>Opsi</center></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,7 +27,7 @@
                                 <th scope="row"><?=$no++?></th>
                                 <td align="left"><?=$data['deskripsi']?></td>
                                 <td align="left">
-                                    <a href="edit-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editinfopengiriman&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
                                     <a href="hapus-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

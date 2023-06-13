@@ -9,7 +9,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    <a href="<?= $main_url ?>/siswa/add-siswa.php" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Mitra</a>
+                    <a href="<?= $url ?>/admin/route-admin.php?msg=addmitra" class="btn btn-sm btn-primary float-end "><i class="fa-solid fa-plus"></i> Tambah Mitra</a>
                 </div>
                 <div class="card-body">
                     <table class="table table-hover" id="datatablesSimple">
@@ -18,6 +18,7 @@
                                 <th scope="col">No.</th>
                                 <th scope="col">Nama</th>
                                 <th scope="col">Foto</th>
+                                <th scope="col">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -34,7 +35,7 @@
                                     <img src="<?= $url ?>/img/<?=$data['foto']?>" alt="" width="60" height="60">
                                 </td>
                                 <td align="left">
-                                    <a href="edit-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editmitra&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
                                     <a href="hapus-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

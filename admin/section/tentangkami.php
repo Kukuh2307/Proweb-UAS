@@ -13,9 +13,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">No.</th>
-                                <th scope="col"><center>Foto</center></th>
-                                <th scope="col"><center>Judul</center></th>
-                                <th scope="col"><center>Deskripsi</center></th>
+                                <th scope="col">Foto</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Deskripsi</th>
+                                <th scope="col">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -32,7 +33,7 @@
                                 <td align="left"><?=$data['judul']?></td>
                                 <td align="left"><?=$data['deskripsi']?></td>
                                 <td align="left">
-                                    <a href="edit-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=edittentangkami&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
                                     <a href="hapus-siswa.php?nis=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>

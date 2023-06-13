@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 // cek session
 if(!isset($_SESSION['Login'])){
     header("location:../index.php");

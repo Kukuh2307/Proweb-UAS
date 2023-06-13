@@ -23,7 +23,7 @@
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=jumbotron">Jumbotron</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=koleksibaru">Kolesi</a>
-                            <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=blog">Blog</a>
+                            <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=blog">Artikel</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=mitra">Mitra</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=tentangkami">Tentang Kami</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=informasidanpengiriman">Informasi Pengiriman</a>
