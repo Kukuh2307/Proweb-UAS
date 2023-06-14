@@ -1,3 +1,12 @@
+<?php
+// session_start();
+
+// // cek session
+// if(!isset($_SESSION['Login'])){
+//     header("location:auth/login.php?msg=directorytranfesal");
+//     exit;
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

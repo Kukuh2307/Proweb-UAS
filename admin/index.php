@@ -1,9 +1,9 @@
 <?php
-session_start();
-if (!isset($_SESSION['Login'])) {
-    header("location:auth/login.php?msg=directorytranfesal");
-    exit;
-}
+// session_start();
+// if (!isset($_SESSION['Login'])) {
+//     header("location:auth/login.php?msg=directorytranfesal");
+//     exit;
+// }
 if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
     $tittle = $msg;

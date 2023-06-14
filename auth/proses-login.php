@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("../config.php");
 
 
@@ -16,7 +17,7 @@ if(isset($_POST['login'])){
             $_SESSION['Login'] = true;
             $_SESSION['Username'] = $name;
             if($row['status'] == 'admin' ){
-                header("location:../admin/index.php?msg=sucess");
+                header("location:../admin/index.php?msg=dashboard");
             } elseif($row['status'] == 'user'){
                 header("location:../index.php?msg=succes");
                 exit;

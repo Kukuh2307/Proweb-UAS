@@ -1,11 +1,12 @@
 <?php
-
+session_start();
 // cek session
 if(!isset($_SESSION['Login'])){
-    header("location:../index.php");
-    exit;
+    $keterangan = "";
+    $tombol = '<a class="btn btn-primary" href="'.$url.'/auth/login.php"><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
 } else {
-    $keterangan = $_SESSION['Username'];
+    $keterangan = '<a class="btn btn-primary m-1" href="#"><i class="fa-solid fa-user"></i> ' . $_SESSION['Username'] . '</a>';
+    $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
 }
 require_once 'config.php';
 require_once 'header.php';
@@ -43,15 +44,12 @@ require_once 'header.php';
                             <a class="btn btn-link" href="#"><i class="fa-solid fa-cart-shopping"></i> <span
                                     class="badge badge-danger">0</span></a>
                         </li>
-                        <?php
-                        if(isset($keterangan)){
-                            $keterangan = $_SESSION['Username'];
-                        } else{
-                            $keterangan = "Masuk / Daftar";
-                        }
-                        ?>
+                        
                         <li class="nav-item ml-md-3">
-                            <a class="btn btn-primary" href="#"><i class="fa-solid fa-user"></i> <?=$keterangan?></a>
+                            <?php
+                            echo $keterangan;
+                            echo $tombol;
+                            ?>
                         </li>
                     </ul>
                 </div>

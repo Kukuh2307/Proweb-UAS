@@ -12,7 +12,7 @@ if (isset($_GET['id'])) {
             <h1 class="mt-4">Edit Informasi Pengiriman</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="<?= $url ?>/admin/route-admin.php?msg=dashboard" class="link-secondary">Dashboard</a></li>
-                <li class="breadcrumb-item"><a href="<?= $url ?>/admin/route-admin.php?msg=informasipengiriman " class="link-secondary">Informasi Pengiriman</a></li>
+                <li class="breadcrumb-item"><a href="<?= $url ?>/admin/route-admin.php?msg=informasidanpengiriman " class="link-secondary">Informasi Pengiriman</a></li>
                 <li class="breadcrumb-item active">Edit Informasi Pengiriman</li>
             </ol>
             <form action="section/proses-edit-infopengiriman.php" method="POST" enctype="multipart/form-data">

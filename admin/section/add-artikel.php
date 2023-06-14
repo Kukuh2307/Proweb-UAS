@@ -23,7 +23,7 @@
                                     <label for="judul" class="col-sm-3 col-form-label">Judul</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="judul" name="judul" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan judul blog" required>
+                                        <input type="text" class="form-control border-0 border-bottom" id="judul" name="judul" maxlength="60" maxlength="60" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan judul artikel" required>
                                     </div>
                                 </div>
 
@@ -32,7 +32,7 @@
                                     <label for="tumbnail" class="col-sm-3 col-form-label">Tumbnail</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="tumbnail" name="tumbnail" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan tumbnail blog" required>
+                                        <input type="text" class="form-control border-0 border-bottom" id="tumbnail" name="tumbnail" style="margin-left: -2.5rem;" placeholder="Masukkan tumbnail artikel" maxlength="150" required>
                                     </div>
                                 </div>
 
@@ -41,7 +41,7 @@
                                     <label for="penulis" class="col-sm-3 col-form-label">Penulis</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="penulis" name="penulis" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan nama penulis" required>
+                                        <input type="text" class="form-control border-0 border-bottom" id="penulis" name="penulis" style="margin-left: -2.5rem;" placeholder="Masukkan nama penulis" required>
                                     </div>
                                 </div>
 
@@ -50,7 +50,7 @@
                                     <label for="isi" class="col-sm-3 col-form-label">Isi</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
-                                        <textarea class="form-control border-1 border-bottom" id="summernote" name="isi" placeholder="Masukkan isi blog" required></textarea>
+                                        <textarea class="form-control border-1 border-bottom" id="summernote" name="isi" placeholder="Masukkan isi Artikel" style="height:12rem; height:12rem;" required></textarea>
                                     </div>
                                 </div>
                             </div>

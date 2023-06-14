@@ -1,12 +1,12 @@
 <?php
-session_start();
+// session_start();
 
 // cek session
 require_once 'config.php';
-if(!isset($_SESSION['Login'])){
-    header("location:auth/login.php?msg=directorytranfesal");
-    exit;
-}
+// if(!isset($_SESSION['Login'])){
+//     header("location:auth/login.php?msg=directorytranfesal");
+//     exit;
+// }
 if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
 } else {

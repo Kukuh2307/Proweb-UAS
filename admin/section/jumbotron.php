@@ -36,7 +36,7 @@
                                 <td align="left"><?=$data['tombol']?></td>
                                 <td align="left">
                                     <a href="<?= $url ?>/admin/route-admin.php?msg=editjumbotron&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
-                                    <a href="hapus-jumbotron.php?id=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
+                                    <a href="<?= $url ?>/admin/section/hapus-jumbotron.php?id=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
                             <?php

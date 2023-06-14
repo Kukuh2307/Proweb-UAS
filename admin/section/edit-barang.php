@@ -71,22 +71,12 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </div>
 
-                                <!-- deskripsi -->
-                                <div class="mb-3 row">
-                                    <label for="deskripsi" class="col-sm-3 col-form-label">Deskripsi</label>
-                                    <label for="" class="col-sm-1 col-form-label">:</label>
-                                    <div class="col-sm-8">
-                                        <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan deskripsi barang" required><?= $data['deskripsi'] ?></textarea>
-                                    </div>
-                                </div>
-
-
                                 <!-- harga -->
                                 <div class="mb-3 row">
                                     <label for="harga" class="col-sm-3 col-form-label">Harga</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="number" class="form-control border-0 border-bottom" id="harga" name="harga" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan harga barang" value="<?= $data['harga'] ?>" required>
+                                        <input type="number" class="form-control border-0 border-bottom" id="harga" name="harga" maxlength="5" style="margin-left: -2.5rem;" placeholder="Masukkan harga barang" value="<?= $data['harga'] ?>" required>
                                     </div>
                                 </div>
 
@@ -96,6 +86,15 @@ if (isset($_GET['id'])) {
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
                                         <input type="number" class="form-control border-0 border-bottom" id="stok" name="stok" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan stok barang" value="<?= $data['stok'] ?>" required>
+                                    </div>
+                                </div>
+
+                                <!-- deskripsi -->
+                                <div class="mb-3 row">
+                                    <label for="deskripsi" class="col-sm-3 col-form-label">Deskripsi</label>
+                                    <label for="" class="col-sm-1 col-form-label">:</label>
+                                    <div class="col-sm-8">
+                                        <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" maxlength="60" style="margin-left: -2.5rem; height:12rem;" placeholder="Masukkan deskripsi barang" required><?= $data['deskripsi'] ?></textarea>
                                     </div>
                                 </div>
                             </div>

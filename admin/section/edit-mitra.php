@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
                                     <label for="deskripsi" class="col-sm-3 col-form-label">Deskripsi</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
-                                    <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" placeholder="Masukkan deskripsi mitra" required><?=$data['deskripsi']?></textarea>
+                                    <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" placeholder="Masukkan deskripsi mitra" style="height: 12rem;"required><?=$data['deskripsi']?></textarea>
                                     </div>
                                 </div>
                             </div>

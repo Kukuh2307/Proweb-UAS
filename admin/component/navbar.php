@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['Login'])) {
+    header("location:../auth/login.php?msg=directorytranfesal");
+    exit;
+}
+?>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-light">
         <!-- Navbar Brand-->
@@ -18,7 +25,7 @@
                     <li>
                         <hr class="dropdown-divider" />
                     </li>
-                    <li><a class="dropdown-item" href="<?= $url ?>/auth/proses-logout.php">Logout</a></li>
+                    <li><a class="dropdown-item" href="<?= $url ?>/auth/proses-logout.php?role=admin">Logout</a></li>
                 </ul>
             </li>
         </ul>

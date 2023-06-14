@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
                                     <label for="judul" class="col-sm-3 col-form-label">Judul</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <input type="text" class="form-control border-0 border-bottom" id="judul" name="judul" maxlength="60" style="margin-left: -2.5rem;" placeholder="Masukkan judul blog" value="<?= $data['judul'] ?>" required>
+                                        <input type="text" class="form-control border-0 border-bottom" id="judul" name="judul" style="margin-left: -2.5rem;" placeholder="Masukkan judul blog" value="<?= $data['judul'] ?>" required>
                                     </div>
                                 </div>
 
