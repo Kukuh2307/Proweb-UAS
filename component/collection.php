@@ -12,7 +12,7 @@ $data = mysqli_fetch_assoc($querySelect);
         </div>
         <div class="collection-list mt-4 row gx-0 gy-3">
             <?php
-            $querySelect = mysqli_query($koneksi, "SELECT * FROM barang");
+            $querySelect = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC");
             for ($dataCount = 0; $dataCount < 4 && $data = mysqli_fetch_assoc($querySelect); $dataCount++) {
                 $rating = $data['rating'];
             ?>

@@ -13,9 +13,9 @@ $data = mysqli_fetch_assoc($querySelect);
 
         <div class="row g-3">
             <?php
-            $querySelect = mysqli_query($koneksi, "SELECT * FROM blog");
-            while ($data = mysqli_fetch_assoc($querySelect)) {
-            ?>
+            $querySelect = mysqli_query($koneksi, "SELECT * FROM blog ORDER BY id DESC");
+            for($dataCount = 0; $dataCount < 3 && $data = mysqli_fetch_assoc($querySelect);$dataCount++){
+                ?>
                 <div class="card border-0 col-md-6 col-lg-4 bg-transparent my-3">
                 <!-- https://source.unsplash.com/640x426?blogs -->
                     <img src="<?= $url ?>/img/<?= $data['foto'] ?>" alt="">
