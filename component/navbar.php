@@ -76,7 +76,7 @@ require_once 'header.php';
                             <a class="nav-link" href="index.php#mitra" onclick="handleMenuClick(this)">Mitra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$url?>/proses-support.php?msg=kategori" onclick="handleMenuClick(this)">Kategori</a>
+                            <a class="nav-link" href="<?=$url?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#tentang-kami" onclick="handleMenuClick(this)">Tentang Kami</a>
