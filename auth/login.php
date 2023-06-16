@@ -22,19 +22,19 @@ session_start();
     <div class="body">
         <div class="veen">
             <div class="login-btn splits">
-                <p>Already an user?</p>
+                <p>Sudah mempunyai akun??</p>
                 <button class="active">Login</button>
             </div>
             <div class="rgstr-btn splits">
-                <p>Don't have an account?</p>
-                <button>Register</button>
+                <p>Belum mempunyai akun??</p>
+                <button>Form Daftar</button>
             </div>
             <div class="wrapper">
                 <form id="login" tabindex="500" action="proses-login.php" method="post">
                     <h3>Login</h3>
                     <div class="mail">
                         <input type="email" name="username">
-                        <label>Mail or Username</label>
+                        <label>Email</label>
                     </div>
                     <div class="passwd">
                         <input type="password" name="password">
@@ -45,7 +45,7 @@ session_start();
                     </div>
                 </form>
                 <form id="register" tabindex="502" action="proses-tambah-user.php" method="post">
-                    <h3>Register</h3>
+                    <h3>Form Daftar</h3>
                     <div class="name">
                         <input type="text" name="namaDepan">
                         <label>Nama Depan</label>
@@ -67,30 +67,13 @@ session_start();
                         <label>Re-Password</label>
                     </div>
                     <div class="submit">
-                        <button class="dark">Register</button>
+                        <button class="dark" name="regist">Daftar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <style type="text/css">
-        .site-link {
-            padding: 5px 15px;
-            position: fixed;
-            z-index: 99999;
-            background: #fff;
-            box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
-            right: 30px;
-            bottom: 30px;
-            border-radius: 10px;
-        }
-
-        .site-link img {
-            width: 30px;
-            height: 30px;
-        }
-    </style>
 
     <script src="../js/script.js"></script>
 </body>

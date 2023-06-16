@@ -15,7 +15,7 @@ if(isset($_POST['login'])){
             $name = $row['nama_depan'];
             $_SESSION['Login'] = true;
             $_SESSION['Username'] = $name;
-            header("location:../index.php?msg=succes?user=$name");
+            header("location:../index.php?msg=succes");
             exit;
         } else{
             header("location:../auth/login.php?msg=falsepassword");
