@@ -5,9 +5,11 @@ if(!isset($_SESSION['Login'])){
     $keterangan = "";
     $tombol = '<a class="btn btn-primary" href="'.$url.'/auth/login.php"><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
 } else {
-    $keterangan = '<a class="btn btn-primary m-1" href="#"><i class="fa-solid fa-user"></i> ' . $_SESSION['Username'] . '</a>';
+    $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
+    $keterangan = '<a class="btn btn-primary m-1" href="#"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
     $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
 }
+
 require_once 'config.php';
 require_once 'header.php';
 ?>

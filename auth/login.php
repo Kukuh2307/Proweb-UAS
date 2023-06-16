@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,23 +44,27 @@
                         <button class="dark" name="login">Login</button>
                     </div>
                 </form>
-                <form id="register" tabindex="502">
+                <form id="register" tabindex="502" action="proses-tambah-user.php" method="post">
                     <h3>Register</h3>
                     <div class="name">
-                        <input type="text" name="">
-                        <label>Full Name</label>
+                        <input type="text" name="namaDepan">
+                        <label>Nama Depan</label>
+                    </div>
+                    <div class="name">
+                        <input type="text" name="namaLengkap">
+                        <label>Nama Lengkap</label>
                     </div>
                     <div class="mail">
-                        <input type="mail" name="">
-                        <label>Mail</label>
-                    </div>
-                    <div class="uid">
-                        <input type="text" name="">
-                        <label>User Name</label>
+                        <input type="mail" name="email">
+                        <label>Email</label>
                     </div>
                     <div class="passwd">
-                        <input type="password" name="">
+                        <input type="password" name="password">
                         <label>Password</label>
+                    </div>
+                    <div class="passwd">
+                        <input type="password" name="repassword">
+                        <label>Re-Password</label>
                     </div>
                     <div class="submit">
                         <button class="dark">Register</button>

@@ -1,18 +1,22 @@
 <?php
-// session_start();
+session_start();
 
 // cek session
 require_once 'config.php';
-// if(!isset($_SESSION['Login'])){
-//     header("location:auth/login.php?msg=directorytranfesal");
-//     exit;
+// require_once ('auth/proses-login.php');
+
+// if(isset($_GET['user'])){
+//     $user = $_GET['user'];
+// } else{
+//     $user = '';
 // }
+
 if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
 } else {
     $msg = [''];
 }
-require_once '../PrakwebUas/component/navbar.php';
+require_once 'component/navbar.php';
 if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/informasi-pengiriman.php';
 } elseif ($msg == 'privacy-policy') {

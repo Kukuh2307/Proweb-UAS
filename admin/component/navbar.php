@@ -34,7 +34,7 @@ if (!isset($_SESSION['Login'])) {
     <?php
     // ambil session dari username lalu masukkan ke query untuk di kirim ke database. Setelah itu data yang ada akan di tampilkan pada card modal
     $username = $_SESSION['Username'];
-    $queryGetUserDB = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE nama ='$username'");
+    $queryGetUserDB = mysqli_query($koneksi, "SELECT * FROM admin WHERE nama_depan ='$username'");
     $profile = mysqli_fetch_array($queryGetUserDB);
     ?>
     <div class="modal" tabindex="-1" id="mdlProfileUser">
