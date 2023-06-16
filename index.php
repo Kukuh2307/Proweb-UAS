@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 // cek session
 require_once 'config.php';
@@ -23,7 +23,9 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/privacy-policy.php';
 } elseif ($msg == 'term-and-condition') {
     require_once '../PrakwebUas/term-and-condition.php';
-} else {
+} elseif($msg == 'kategori') {
+    require_once '../PrakwebUas/kategori.php';
+} else{
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';
     require_once '../PrakwebUas/component/blog.php';

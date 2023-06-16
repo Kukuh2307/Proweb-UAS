@@ -64,7 +64,7 @@ require_once 'header.php';
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#" onclick="handleMenuClick(this)">Home</a>
+                            <a class="nav-link" href="index.php#" onclick="handleMenuClick(this)">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#collection" onclick="handleMenuClick(this)">Collection</a>
@@ -74,6 +74,9 @@ require_once 'header.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#mitra" onclick="handleMenuClick(this)">Mitra</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?=$url?>/proses-support.php?msg=kategori" onclick="handleMenuClick(this)">Kategori</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#tentang-kami" onclick="handleMenuClick(this)">Tentang Kami</a>

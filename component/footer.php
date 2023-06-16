@@ -5,7 +5,7 @@ require_once 'config.php';
     <!-- footer -->
     <footer class="footer">
         <div class="container">
-            <div class="row">
+            <div class="row d-flex justify-content-between">
                 <div class="col-md-4">
                     <h5>About Us</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ipsum vel turpis

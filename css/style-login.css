@@ -37,12 +37,12 @@ position: relative;
     transition: all .25s;
 }
 .veen button.dark{
-    border-color: #ff4931;
-    background: #ff4931;
+    /* border-color: #ff4931; */
+    background-image: url(../img/1.jpeg);
 }
 .veen .move button.dark{
-    border-color: #e0b722;
-    background: #e0b722;
+    /* border-color: #e0b722; */
+    background-image: url(../img/1.jpeg);
 }
 .veen .splits p{
     font-size: 18px;
@@ -118,9 +118,9 @@ visibility: hidden;
 }
 .veen .wrapper input{
     height: 40px
-    padding: 5px 15px;
+    /* padding: 5px 15px;
     width: 100%;
-    border: solid 1px #999;
+    border: solid 1px #999; */
 }
 .veen .wrapper input:focus{
     outline: none;
@@ -129,9 +129,6 @@ visibility: hidden;
 }
 .veen > .wrapper.move{
     left: 45%;
-}
-.veen > .wrapper.move input:focus{
-    border-color: #e0b722;
 }
 @media (max-width: 767px){
     .veen{
@@ -171,7 +168,7 @@ visibility: hidden;
         background-image: url(../img/1.jpeg);
     }
     .splits.rgstr-btn button.active{
-        background: #e0b722;
+        background-image: url(../img/1.jpeg);
     }
     .splits p{
         display: none;
@@ -228,8 +225,8 @@ justify-content: center;
     background-image: url(../img/1.jpeg);
 }
 .veen .move button.dark{
-    border-color: #e0b722;
-    background: #e0b722;
+    /* border-color: #e0b722; */
+    background-image: url(../img/1.jpeg);
 }
 .veen .splits p{
     font-size: 18px;
@@ -305,9 +302,9 @@ visibility: hidden;
 }
 .veen .wrapper input{
     height: 40px
-    padding: 5px 15px;
+    /* padding: 5px 15px;
     width: 100%;
-    border: solid 1px #999;
+    border: solid 1px #999; */
 }
 .veen .wrapper input:focus{
     outline: none;
@@ -316,9 +313,7 @@ visibility: hidden;
 .veen > .wrapper.move{
     left: 45%;
 }
-.veen > .wrapper.move input:focus{
-    border-color: #e0b722;
-}
+
 @media (max-width: 767px){
     .veen{
         padding: 5px;
@@ -353,10 +348,10 @@ visibility: hidden;
     }
     .splits button.active{
         opacity: 1;
-        background: #ff4931;
+        background-image: url(../img/1.jpeg);
     }
     .splits.rgstr-btn button.active{
-        background: #e0b722;
+        background-image: url(../img/1.jpeg);
     }
     .splits p{
         display: none;
