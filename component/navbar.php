@@ -1,12 +1,12 @@
 <?php
 session_start();
 // cek session
-if(!isset($_SESSION['Login'])){
+if (!isset($_SESSION['Login'])) {
     $keterangan = "";
-    $tombol = '<a class="btn btn-primary" href="'.$url.'/auth/login.php"><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
+    $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php"><i class="fa-solid fa-user" style="color: var(--color1); color:white;"></i> Masuk / Daftar</a>';
 } else {
     $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
-    $keterangan = '<a class="btn btn-primary m-1" href="#"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
+    $keterangan = '<a class="btn m-1" href="#" style="color: var(--color1); border: 2px solid var(--color1);"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
     $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
 }
 
@@ -28,25 +28,27 @@ require_once 'header.php';
                 </a>
 
                 <ul class="navbar-nav ml-auto d-block d-md-none">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="btn btn-link" href="#"><i class="fa-regular fa-cart-shopping"></i><span
                                 class="badge badge-danger">3</span></a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <div class="collapse navbar-collapse">
                     <form class="form-inline my-2 my-lg-0 mx-auto">
                         <input class="form-control" type="search" placeholder="Cari barang..." aria-label="Search">
-                        <button class="btn btn-success my-2 my-sm-0" type="submit"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
+                        <button class="btn my-2 my-sm-0" style="background-color:#008744; color:white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="btn btn-link" href="#"><i class="fa-solid fa-cart-shopping"></i> <span
-                                    class="badge badge-danger">0</span></a>
+                            <a class="btn btn-link" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-check-fill" viewBox="0 0 16 16">
+                                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                                </svg>
+                                <span class="badge badge-danger">10</span></a>
                         </li>
-                        
+
                         <li class="nav-item ml-md-3">
                             <?php
                             echo $keterangan;
@@ -76,20 +78,19 @@ require_once 'header.php';
                             <a class="nav-link" href="index.php#mitra" onclick="handleMenuClick(this)">Mitra</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=$url?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
+                            <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#tentang-kami" onclick="handleMenuClick(this)">Tentang Kami</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Support
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="<?=$url?>/proses-support.php?msg=informasi-pengiriman">Informasi Pengiriman</a>
-                                <a class="dropdown-item" href="<?=$url?>/proses-support.php?msg=privacy-policy">Kebijakan pribadi</a>
-                                <a class="dropdown-item" href="<?=$url?>/proses-support.php?msg=term-and-condition">Syarat dan ketentuan</a>
+                                <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=informasi-pengiriman">Informasi Pengiriman</a>
+                                <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=privacy-policy">Kebijakan pribadi</a>
+                                <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=term-and-condition">Syarat dan ketentuan</a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -100,19 +101,6 @@ require_once 'header.php';
             </div>
         </nav>
 
-        <div class="search-bar d-block d-md-none">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <form class="form-inline mb-3 mx-auto">
-                            <input class="form-control" type="search" placeholder="Search for products..."
-                                aria-label="Search">
-                            <button class="btn btn-success" type="submit"><i class="bx bx-search"></i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Sidebar -->
         <nav id="sidebar">
@@ -146,8 +134,7 @@ require_once 'header.php';
                     <a href="#"><i class="bx bx-crown mr-3"></i> Publishers</a>
                 </li>
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i
-                            class="bx bx-help-circle mr-3"></i>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-help-circle mr-3"></i>
                         Support</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>

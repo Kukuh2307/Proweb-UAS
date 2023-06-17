@@ -20,15 +20,16 @@ $data = mysqli_fetch_assoc($querySelect);
                     <div class="collection-img position-relative">
                         <!-- https://source.unsplash.com/370x370?tablet -->
                         <img src="<?= $url ?>/img/<?= $data['foto'] ?>" class="w-100">
-                        <span class="position-absolute bg-primary text-white d-flex align-items-center justify-content-center">sale</span>
+                        <span class="position-absolute text-white d-flex align-items-center justify-content-center" style="background-color: var(--color1);">sale</span>
                     </div>
                     <div class="text-center">
                         <div class="rating mt-3">
                             <?php
-                            for ($i = 0; $i < $rating; $i++) {
-                            ?>
-                                <span class="text-primary"><i class="fas fa-star"></i></span>
-                            <?php
+                            for ($i = 0; $i < $data['rating']; $i++) {
+                                echo '<span style="color: var(--color1);"><i class="fas fa-star"></i></span>';
+                            }
+                            for ($i = $data['rating']; $i < 5; $i++) {
+                                echo '<span class="text-muted"><i class="fas fa-star"></i></span>';
                             }
                             ?>
                         </div>

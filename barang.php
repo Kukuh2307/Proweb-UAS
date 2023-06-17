@@ -17,16 +17,17 @@ require_once '../PrakwebUas/component/navbar.php';
                         <h3><?= $data['nama'] ?></h3>
                         <div class="rating">
                             <?php
-                            for ($i = 0; $i < $rating; $i++) {
-                            ?>
-                                <span class="text-primary"><i class="fas fa-star"></i></span>
-                            <?php
+                            for ($i = 0; $i < $data['rating']; $i++) {
+                                echo '<span style="color: var(--color1);"><i class="fas fa-star"></i></span>';
+                            }
+                            for ($i = $data['rating']; $i < 5; $i++) {
+                                echo '<span class="text-muted"><i class="fas fa-star"></i></span>';
                             }
                             ?>
                         </div>
                         <p>Stok : <?= $data['stok'] ?></p>
                         <p>Rp.<?= number_format($data['harga']) ?>,.</p>
-                        <button>Add to Cart</button>
+                        <a href="<?= $url ?>/proses-support.php?msg=detail-barang&id=<?= $data['id'] ?>"><button type="sumbit">Detail</button></a>
                     </div>
                 <?php
                 }

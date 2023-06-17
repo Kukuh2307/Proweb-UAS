@@ -27,7 +27,7 @@ $data = mysqli_fetch_assoc($querySelect);
                                 <span class="fw-bold">Author: </span><?= $data['penulis'] ?>
                             </small>
                         </p>
-                        <a href="#" class="btn-custom">Read More</a>
+                        <a href="#" class="btn-primary p-2" style="background-color: var(--color1);">Read More</a>
                     </div>
                 </div>
             <?php

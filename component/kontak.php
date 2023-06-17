@@ -31,7 +31,7 @@ $data = mysqli_fetch_assoc($querySelect);
                             <label for="no-hp">Masukkan no handphone</label>
                             <input type="text" class="form-control" id="no-hp" placeholder="Masukkan no handphone">
                         </div>
-                        <button type="submit" class="btn btn-primary">Kirim pesan</button>
+                        <button type="submit" class="btn text-white"style="background-color: var(--color1);">Kirim pesan</button>
                     </form>
                 </div>
             </div>

@@ -3,9 +3,9 @@ require_once 'config.php';
 // require_once 'kontak.php';
 ?>
     <!-- footer -->
-    <footer class="footer">
+    <footer class="footer" style="background-color: var(--color1);">
         <div class="container">
-            <div class="row d-flex justify-content-between">
+            <div class="row">
                 <div class="col-md-4">
                     <h5>About Us</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sed ipsum vel turpis
@@ -19,7 +19,7 @@ require_once 'config.php';
                         <li>Phone: +1234567890</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 custom-footer">
                     <h5>Follow Us</h5>
                     <ul class="list-inline social-icons">
                         <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>

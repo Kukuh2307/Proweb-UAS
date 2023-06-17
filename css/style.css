@@ -4,6 +4,7 @@
     --lg-font: 'Kaisei Tokumin', serif;
     --sm-font: 'Poppins', sans-serif;
     --pink: #e5345b;
+    --color1 : #008744;
 }
 
 html {
@@ -13,7 +14,7 @@ html {
 
 body {
     font-family: var(--sm-font);
-    background-color: #222;
+    background-color: var(--color1);
 }
 
 h1 {
@@ -42,11 +43,6 @@ h1 {
     border-radius: 0.25rem;
 }
 
-.btn-custom {
-    padding: 0.5rem 0.75rem;
-    background-color: #007bff;
-    color: #fff;
-}
 
 .bx.icon-single {
     font-size: 1.5rem;
@@ -286,7 +282,6 @@ ul.social-icons li {
 
 /* header */
 #header::before {
-    background: url(../img/1.jpeg) top/cover no-repeat;
     content: "";
     position: absolute;
     top: 0;
@@ -295,6 +290,12 @@ ul.social-icons li {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0.8;
+}
+
+.carousel-inner{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .carousel-inner h1 {
@@ -311,8 +312,14 @@ ul.social-icons li {
 }
 
 .carousel-item .btn:hover {
-    /* border-color: var(--pink)!important;  */
     color: #fff;
+}
+.custom-img{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: auto;
 }
 
 /* collection */
@@ -383,8 +390,11 @@ ul.social-icons li {
 }
 
 /* footer */
+.footer .container .row{
+    display: flex;
+    justify-content: space-between;
+}
 .footer {
-    background-color: #222;
     color: #fff;
     padding: 30px 0;
 }
@@ -431,6 +441,10 @@ ul.social-icons li {
     margin-top: 20px;
     font-size: 14px;
 }
+.footer hr{
+    border-color: white;
+}
+
 
 @media (max-width: 767px) {
     .footer {

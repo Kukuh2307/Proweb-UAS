@@ -38,7 +38,7 @@
 }
 
 .rating span {
-    color: #1da1f2;
+    color: #008744;
 }
 
 .card p {
@@ -51,12 +51,15 @@
     font-size: 14px;
     font-weight: 600;
     color: #fff;
-    background-color: #1da1f2;
+    background-color: #008744;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .card button:hover {
-    background-color: #0c87c4;
+    background-color: white;
+    border: 2px solid #008744;
+    color: #008744;
+    transition: 0.5s;
 }

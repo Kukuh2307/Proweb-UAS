@@ -16,6 +16,12 @@ if (isset($_GET['msg'])) {
 } else {
     $msg = [''];
 }
+
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+} else {
+    $id = [''];
+}
 require_once 'component/navbar.php';
 if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/informasi-pengiriman.php';
@@ -25,6 +31,8 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/term-and-condition.php';
 } elseif($msg == 'barang') {
     require_once '../PrakwebUas/barang.php';
+} elseif($msg == 'detail-barang') {
+    require_once '../PrakwebUas/detail-barang.php';
 } else{
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';

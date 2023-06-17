@@ -3,35 +3,33 @@ require_once 'config.php';
 require_once 'navbar.php';
 ?>
 <!-- header -->
-<header id="header" class="vh-100 carousel slide" data-ride="carousel" style="padding-top: 240px; padding-bottom: 210px;">
-    <div class="container d-flex align-items-center carousel-inner">
+<header id="header" class="vh-100 carousel slide" data-ride="carousel">
+    <div class="d-flex align-items-center carousel-inner">
         <?php
         $querySelect = mysqli_query($koneksi, "SELECT * FROM jumbotron");
         $jumlah = mysqli_num_rows($querySelect);
         $no = 0;
         $active = true; // Inisialisasi variabel active dengan nilai true
-        for($i=0;$i<=$jumlah;$i++){
-            while ($data = mysqli_fetch_array($querySelect)) {
-                if ($active) {
-            ?>
-                    <div class="text-center carousel-item active">
-                        <h2 class="text-capitalize text-white"><?= $data['heading1'] ?></h2>
-                        <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
-                        <a href="#" class="btn mt-3 text-uppercase"><?= $data['tombol'] ?></a>
-                    </div>
-                <?php
-                    $active = false; // Set active ke false setelah item pertama ditampilkan
-                } else {
-                ?>
-                    <div class="text-center carousel-item">
-                        <h2 class="text-capitalize text-white"><?= $data['heading1'] ?></h2>
-                        <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
-                        <a href="#" class="btn mt-3 text-uppercase"><?= $data['tombol'] ?></a>
-                    </div>
+        while ($data = mysqli_fetch_array($querySelect)) {
+            if ($active) {
+        ?>
+                <div class="text-center carousel-item active custom-img" style="background-image: url('img/<?= $data['foto'] ?>');">
+                    <h2 class="text-capitalize text-white" style="padding-top: 240px"><?= $data['heading1'] ?></h2>
+                    <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
+                    <a href="#" class="btn mt-3 text-uppercase" style=" margin-bottom: 210px;"><?= $data['tombol'] ?></a>
+                </div>
             <?php
-                }
-                $no++;
+                $active = false; // Set active ke false setelah item pertama ditampilkan
+            } else {
+            ?>
+                <div class="text-center carousel-item custom-img" style="background-image:url('img/<?= $data['foto'] ?>');">
+                    <h2 class="text-capitalize text-white" style="padding-top: 240px"><?= $data['heading1'] ?></h2>
+                    <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
+                    <a href="#" class="btn mt-3 text-uppercase" style=" margin-bottom: 210px;"><?= $data['tombol'] ?></a>
+                </div>
+        <?php
             }
+            $no++;
         }
         ?>
     </div>
