@@ -86,8 +86,8 @@ h1 {
 .sub-menu.navbar-light .navbar-nav .nav-link.active,
 .sub-menu.navbar-light .navbar-nav .nav-link.show,
 .sub-menu.navbar-light .navbar-nav .show>.nav-link {
-    border-bottom: 3px solid #007bff;
-    color: #007bff;
+    border-bottom: 3px solid #008744;
+    color: #008744;
 }
 
 .navbar .navbar-toggler {
@@ -454,5 +454,8 @@ ul.social-icons li {
     .footer ul.social-icons li {
         margin-right: 5px;
     }
+}
+.svg-icon{
+    fill: #008744;
 }
 

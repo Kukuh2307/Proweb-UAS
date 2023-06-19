@@ -33,6 +33,8 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/barang.php';
 } elseif($msg == 'detail-barang') {
     require_once '../PrakwebUas/detail-barang.php';
+} elseif($msg == 'detail-artikel') {
+    require_once '../PrakwebUas/detail-artikel.php';
 } else{
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';
