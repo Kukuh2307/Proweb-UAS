@@ -9,11 +9,11 @@
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-house"></i></div>
                         Dashboard
                     </a>    
-                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=dashboard">
+                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=daftar-admin">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
                         Daftar Admin
                     </a>    
-                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=dashboard">
+                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=daftar-user">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-user-group"></i></div>
                         Daftar User
                     </a>    

@@ -62,5 +62,13 @@ if($msg == "dashboard"){
     require_once ("section/syaratketentuan.php");
 } elseif($msg == "editsyaratdanketentuan"){
     require_once ("section/edit-syaratdanketentuan.php");
+} elseif($msg == "daftar-admin"){
+    require_once ("section/tabel-admin.php");
+} elseif($msg == "add-daftar-admin"){
+    require_once ("section/add-admin.php");
+} elseif($msg == "daftar-user"){
+    require_once ("section/tabel-user.php");
+} elseif($msg == "add-daftar-user"){
+    require_once ("section/add-user.php");
 }
 require_once ("component/footer.php");

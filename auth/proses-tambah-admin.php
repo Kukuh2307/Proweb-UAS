@@ -6,11 +6,12 @@ if (isset($_POST['regist'])) {
     $namaDepan = trim(htmlspecialchars($_POST['namaDepan']));
     $namaLengkap = trim(htmlspecialchars($_POST['namaLengkap']));
     $email = trim(htmlspecialchars($_POST['email']));
+    $status = trim(htmlspecialchars($_POST['status']));
     $password = trim(htmlspecialchars($_POST['password']));
     $repassword = trim(htmlspecialchars($_POST['repassword']));
 
     // Validasi input
-    if (empty($namaDepan) || empty($namaLengkap) || empty($email) || empty($password) || empty($repassword)) {
+    if (empty($namaDepan) || empty($namaLengkap) || empty($email) || empty($status) || empty($password) || empty($repassword)) {
         $session = $_SESSION['error'] = "Mohon lengkapi semua field.";
         header("Location: login.php?$session");
         exit;
@@ -21,7 +22,7 @@ if (isset($_POST['regist'])) {
     }
 
     // Cek apakah email sudah terdaftar
-    $queryCheckEmail = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE email = '$email'");
+    $queryCheckEmail = mysqli_query($koneksi, "SELECT * FROM admin WHERE email = '$email'");
     if (mysqli_num_rows($queryCheckEmail) > 0) {
         $session = $_SESSION['error'] = "Email sudah terdaftar. Silakan gunakan email lain.";
         header("Location: login.php?$session");
@@ -32,7 +33,7 @@ if (isset($_POST['regist'])) {
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
     // Simpan data user baru ke database
-    $queryInsertUser = mysqli_query($koneksi, "INSERT INTO pengguna (nama_depan, nama_lengkap, email, password) VALUES ('$namaDepan', '$namaLengkap', '$email', '$hashedPassword')");
+    $queryInsertUser = mysqli_query($koneksi, "INSERT INTO admin (nama_depan, nama_lengkap, email,status, password) VALUES ('$namaDepan', '$namaLengkap', '$email','$status', '$hashedPassword')");
     if ($queryInsertUser) {
         $_SESSION['success'] = "Registrasi berhasil. Silakan login.";
         header("Location: login.php?$session");
