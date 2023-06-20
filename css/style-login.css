@@ -37,11 +37,11 @@ position: relative;
     transition: all .25s;
 }
 .veen button.dark{
-    /* border-color: #ff4931; */
+    border-color: #008744;
     background-image: url(../img/1.jpeg);
 }
 .veen .move button.dark{
-    /* border-color: #e0b722; */
+    border-color: #008744;
     background-image: url(../img/1.jpeg);
 }
 .veen .splits p{
@@ -220,8 +220,7 @@ justify-content: center;
     transition: all .25s;
 }
 .veen button.dark{
-    /* border-color: #ff4931;
-    background: #ff4931; */
+
     background-image: url(../img/1.jpeg);
 }
 .veen .move button.dark{

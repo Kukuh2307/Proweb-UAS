@@ -3,7 +3,7 @@ session_start();
 // cek session
 if (!isset($_SESSION['Login'])) {
     $keterangan = "";
-    $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php"><i class="fa-solid fa-user" style="color: var(--color1); color:white;"></i> Masuk / Daftar</a>';
+    $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php" style="background-color:#008744; color:white ><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
 } else {
     $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
     $keterangan = '<a class="btn m-1" href="#" style="color: var(--color1); border: 2px solid var(--color1);"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
