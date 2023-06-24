@@ -4,6 +4,11 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $querySelect = mysqli_query($koneksi, "SELECT * FROM barang WHERE id='$id'");
     $data = mysqli_fetch_array($querySelect);
+    if(isset($_GET['kategori'])){
+        $kategori = $_GET['kategori'];
+    } else{
+        $kategori = "";
+    }
 }
 ?>
 <div id="layoutSidenav_content">
@@ -44,16 +49,16 @@ if (isset($_GET['id'])) {
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
                                         <select name="kategori" id="kategori" class="form-select border-0 border-bottom text-secondary" required>
                                             <?php
-                                            $kategori = ['laptop', 'elektronik', 'handphone'];
-                                            foreach ($kategori as $ktgr) {
-                                                if ($data['kategori'] == $ktgr) {
-                                            ?>
-                                                    <option value="<?= $ktgr ?> selected"><?= $ktgr ?></option>
-                                                <?php
+                                            $querySelectKategori = mysqli_query($koneksi, "SELECT * FROM kategori");
+                                            while ($dataKategori = mysqli_fetch_array($querySelectKategori)) {
+                                                if ($kategori == $dataKategori['nama']) {
+                                                    ?>
+                                                    <option value="<?=$dataKategori['nama']?>" selected><?=$dataKategori['nama']?></option>
+                                                    <?php
                                                 } else {
-                                                ?>
-                                                    <option value="<?= $ktgr ?>"><?= $ktgr ?></option>
-                                            <?php
+                                                    ?>
+                                                    <option value="<?=$dataKategori['nama']?>"><?=$dataKategori['nama']?></option>
+                                                    <?php
                                                 }
                                             }
                                             ?>
@@ -94,7 +99,7 @@ if (isset($_GET['id'])) {
                                     <label for="deskripsi" class="col-sm-3 col-form-label">Deskripsi</label>
                                     <label for="" class="col-sm-1 col-form-label">:</label>
                                     <div class="col-sm-8">
-                                        <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" maxlength="60" style="margin-left: -2.5rem; height:12rem;" placeholder="Masukkan deskripsi barang" required><?= $data['deskripsi'] ?></textarea>
+                                        <textarea class="form-control border-1 border-bottom" id="deskripsi" name="deskripsi" style="margin-left: -2.5rem; height:12rem;" placeholder="Masukkan deskripsi barang" required><?= $data['deskripsi'] ?></textarea>
                                     </div>
                                 </div>
                             </div>

@@ -16,6 +16,12 @@ if (isset($_GET['id'])) {
 } else {
     $id = [''];
 }
+
+if(isset($_GET['kategori'])){
+    $kategori = $_GET['kategori'];
+} else{
+    $kategori = [''];
+}
 require_once("../config.php");
 require_once("component/header.php");
 require_once("component/navbar.php");

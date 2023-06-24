@@ -45,7 +45,7 @@
                                 <td align="left"><?=$data['harga']?></td>
                                 <td align="left"><?=$data['stok']?></td>
                                 <td align="left">
-                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editbarang&id=<?=$data['id']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
+                                    <a href="<?= $url ?>/admin/route-admin.php?msg=editbarang&id=<?=$data['id']?>&kategori=<?=$data['kategori']?>" class="btn btn-sm btn-warning" title="Edit"><i class="fa-solid fa-pen"></i></a>
                                     <a href="<?= $url ?>/admin/section/hapus-barang.php?id=<?=$data['id']?>" class="btn btn-sm btn-danger"title="Hapus"onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
                                 </td>
                             </tr>
