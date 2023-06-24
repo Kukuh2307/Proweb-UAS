@@ -16,7 +16,11 @@
                     <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=daftar-user">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-user-group"></i></div>
                         Daftar User
-                    </a>    
+                    </a>
+                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=daftar-kategori-barang">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-user-group"></i></div>
+                        Daftar Kategori Barang
+                    </a>     
                     <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=dashboard">
                         <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill-wave"></i></div>
                         Daftar Transaksi

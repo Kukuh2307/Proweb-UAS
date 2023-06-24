@@ -70,5 +70,9 @@ if($msg == "dashboard"){
     require_once ("section/tabel-user.php");
 } elseif($msg == "add-daftar-user"){
     require_once ("section/add-user.php");
+} elseif($msg == "daftar-kategori-barang"){
+    require_once ("section/daftar-kategori.php");
+} elseif($msg == "add-daftar-kategori"){
+    require_once ("section/add-daftar-kategori.php");
 }
 require_once ("component/footer.php");
