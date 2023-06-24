@@ -34,10 +34,15 @@
                                     <div class="col-sm-8" style="margin-left:-2.5rem;">
                                         <select name="kategori" id="kategori" class="form-select border-0 border-bottom text-secondary" required>
                                             <option value="" selected>--Pilih Kategori--</option>
-                                            <option value="Elektronik">Elektronik</option>
-                                            <option value="Handphone">Handphone</option>
-                                            <option value="Baju">Baju</option>
-                                            <option value="Keyboard">Keyboard</option>
+                                            <?php
+                                            $querySelect = mysqli_query($koneksi, "SELECT * FROM kategori");
+                                            $data = mysqli_fetch_array($querySelect);
+                                            while($data = mysqli_fetch_array($querySelect)){
+                                                ?>
+                                                <option value="<?=$data['nama']?>"><?=$data['nama']?></option>
+                                            <?php
+                                            }
+                                            ?>
                                         </select>
                                     </div>
                                 </div>
