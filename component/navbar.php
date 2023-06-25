@@ -4,10 +4,23 @@ session_start();
 if (!isset($_SESSION['Login'])) {
     $keterangan = "";
     $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php" style="background-color:#008744; color:white ><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
+    $user = "";
+    $dataKeranjang = "";
 } else {
     $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
     $keterangan = '<a class="btn m-1" href="#" style="color: var(--color1); border: 2px solid var(--color1);"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
     $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
+    $user = $_SESSION['Username'];
+
+    // query keranjang
+    // cek user
+    $querySelectUser = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE nama_depan='$user'");
+    $dataUser = mysqli_fetch_array($querySelectUser);
+    $idUser = $dataUser['id'];
+
+
+    $querySelect = mysqli_query($koneksi, "SELECT * FROM keranjang WHERE id_user=$idUser");
+    $dataKeranjang = mysqli_num_rows($querySelect);
 }
 
 require_once 'config.php';
@@ -42,11 +55,11 @@ require_once 'header.php';
 
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="btn btn-link" href="#">
+                            <a class="btn btn-link" href="<?= $url ?>/proses-support.php?msg=keranjang">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart-check-fill svg-icon" viewBox="0 0 16 16">
                                     <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-1.646-7.646-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L8 8.293l2.646-2.647a.5.5 0 0 1 .708.708z" />
                                 </svg>
-                                <span class="badge badge-danger">10</span></a>
+                                <span class="badge badge-danger"><?= $dataKeranjang ?></span></a>
                         </li>
 
                         <li class="nav-item ml-md-3">
