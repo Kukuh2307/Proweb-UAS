@@ -22,25 +22,43 @@ $user = $_SESSION['Username'];
                 <?php
                 // query Select User
                 $no = 1;
-                $querySelect = mysqli_query($koneksi, "SELECT barang.nama AS nama_barang, keranjang.banyak, barang.harga, (barang.harga * keranjang.banyak) AS total
+                $querySelect = mysqli_query($koneksi, "SELECT keranjang.id,barang.nama AS nama_barang, keranjang.banyak, barang.harga, (barang.harga * keranjang.banyak) AS total
                 FROM keranjang
                 JOIN barang ON keranjang.id_barang = barang.id
                 JOIN pengguna ON keranjang.id_user = pengguna.id
-                WHERE pengguna.nama_depan = '$user'");    
+                WHERE pengguna.nama_depan = '$user'");
                 if ($querySelect) {
                     while ($data = mysqli_fetch_array($querySelect)) {
-                ?>
+                        $id = $data['id'];
+                        $nama_barang = $data['nama_barang'];
+                        $banyak = $data['banyak'];
+                        $harga = $data['harga'];
+                        $total = $data['total'];
+                        ?>
                         <tr>
-                            <th scope="row"><?= $no++ ?></th>
-                            <td align="left"><?= $data['nama_barang'] ?></td>
-                            <td align="left"><?= $data['banyak'] ?></td>
-                            <td align="left"><?= number_format($data['harga']) ?></td>
-                            <td align="left"><?= number_format($data['total']) ?></td>
+                            <th scope="row">
+                                <?= $no++ ?>
+                            </th>
                             <td align="left">
-                                <a href="<?= $url ?>" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
+                                <?= $data['nama_barang'] ?>
+                            </td>
+                            <td align="left">
+                                <?= $data['banyak'] ?>
+                            </td>
+                            <td align="left">
+                                <?= number_format($data['harga']) ?>
+                            </td>
+                            <td align="left">
+                                <?= number_format($data['total']) ?>
+                            </td>
+                            <td align="left">
+                                <a href="<?= $url ?>/hapus-keranjang.php?id=<?=$id?>" class="btn btn-sm btn-danger"
+                                    title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i
+                                        class="fa-solid fa-trash"></i></a>
+
                             </td>
                         </tr>
-                <?php
+                        <?php
                     }
                 } else {
                     echo "gagal";
