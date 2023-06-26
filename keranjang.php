@@ -67,5 +67,8 @@ $user = $_SESSION['Username'];
 
             </tbody>
         </table>
+        <a href="checkout.php">
+        <button class="btn" style="background-color:#008744; color:white">Checkout</button>
+        </a>
     </div>
 </section>
