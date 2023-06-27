@@ -13,6 +13,8 @@ if (isset($_POST['checkout'])) {
         $idDistrik = $_POST['distrik'];
         $ekspedisi = $_POST['ekspedisi'];
         $paket = $_POST['paket'];
+        $subtotal = $_POST['subtotal'];
+        $metode = $_POST['metode'];
 
         // Mendapatkan nama provinsi dari API RajaOngkir
         $curlProvinsi = curl_init();
@@ -83,8 +85,8 @@ if (isset($_POST['checkout'])) {
         // Mengecek apakah ada item barang yang dipilih
         if (!empty($idBarangList)) {
             // Memasukkan data ke dalam tabel checkout
-            $queryInsert = mysqli_query($koneksi, "INSERT INTO checkout (id_user, provinsi, distrik, ekspedisi, paket)
-            VALUES ('$idUser', '$namaProvinsi', '$namaDistrik', '$ekspedisi', '$paket')");
+            $queryInsert = mysqli_query($koneksi, "INSERT INTO checkout (id_user, provinsi, distrik, ekspedisi, paket,subtotal,metode)
+            VALUES ('$idUser', '$namaProvinsi', '$namaDistrik', '$ekspedisi', '$paket','$subtotal','$metode')");
 
             if ($queryInsert) {
                 // Mendapatkan ID checkout yang baru saja dimasukkan
@@ -104,8 +106,7 @@ if (isset($_POST['checkout'])) {
 
                 // mengupdate stok barang
                 // Mengupdate jumlah stok barang
-                $stokBaru = $stokSekarang - $banyak;
-                $queryUpdateStok = mysqli_query($koneksi, "UPDATE barang SET stok = '$stokBaru' WHERE id = '$idBarang'");
+                $queryUpdateStok = mysqli_query($koneksi, "UPDATE barang SET stok = stok - '$banyak' WHERE id = '$idBarang'");  
 
                 // Redirect ke halaman sukses atau halaman terima kasih
                 header("Location: index.php");
