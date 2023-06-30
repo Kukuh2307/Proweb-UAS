@@ -48,9 +48,9 @@ require_once 'header.php';
                 </ul>
 
                 <div class="collapse navbar-collapse">
-                    <form class="form-inline my-2 my-lg-0 mx-auto">
-                        <input class="form-control" type="search" placeholder="Cari barang..." aria-label="Search">
-                        <button class="btn my-2 my-sm-0" style="background-color:#008744; color:white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <form class="form-inline my-2 my-lg-0 mx-auto" action="proses-searching.php" method="post">
+                        <input class="form-control" type="search" placeholder="Cari barang..." aria-label="Search" name="searching">
+                        <button class="btn my-2 my-sm-0" style="background-color:#008744; color:white" type="submit" name="cari"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
 
                     <ul class="navbar-nav">

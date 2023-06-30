@@ -22,6 +22,12 @@ if (isset($_GET['id'])) {
 } else {
     $id = [''];
 }
+
+if (isset($_GET['cari'])) {
+    $cari = $_GET['cari'];
+} else {
+    $cari = [''];
+}
 require_once 'component/navbar.php';
 if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/informasi-pengiriman.php';
@@ -37,6 +43,8 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/detail-artikel.php';
 } elseif($msg == 'keranjang') {
     require_once '../PrakwebUas/keranjang.php';
+} elseif($msg == 'searching') {
+    require_once '../PrakwebUas/searching.php';
 } else{
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';
