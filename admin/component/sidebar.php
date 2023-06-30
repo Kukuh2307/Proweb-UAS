@@ -17,14 +17,14 @@
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-user-group"></i></div>
                         Daftar User
                     </a>
+                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=koleksibaru">
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-table-list"></i></div>
+                        Barang
+                    </a>
                     <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=daftar-kategori-barang">
-                        <div class="sb-nav-link-icon"><i class="fa-solid fa-user-group"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fa-solid fa-list"></i></div>
                         Daftar Kategori Barang
-                    </a>     
-                    <a class="nav-link text-white hoverNav hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=dashboard">
-                        <div class="sb-nav-link-icon"><i class="fa-sharp fa-solid fa-money-bill-wave"></i></div>
-                        Daftar Transaksi
-                    </a>    
+                    </a>       
 
                     <hr class="mb-0">
                     <div class="sb-sidenav-menu-heading">Admin</div>
@@ -37,7 +37,6 @@
                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                         <nav class="sb-sidenav-menu-nested nav">
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=jumbotron">Jumbotron</a>
-                            <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=koleksibaru">Barang</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=blog">Artikel</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=mitra">Mitra</a>
                             <a class="nav-link text-white hoverNav" href="<?= $url ?>/admin/route-admin.php?msg=tentangkami">Tentang Kami</a>
