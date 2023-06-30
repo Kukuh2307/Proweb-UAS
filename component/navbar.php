@@ -6,11 +6,15 @@ if (!isset($_SESSION['Login'])) {
     $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php" style="background-color:#008744; color:white ><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
     $user = "";
     $dataKeranjang = "";
+    $daftarTransaksi = "";
 } else {
     $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
     $keterangan = '<a class="btn m-1" href="#" style="color: var(--color1); border: 2px solid var(--color1);"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
     $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
     $user = $_SESSION['Username'];
+    $daftarTransaksi = '<li class="nav-item">
+    <a class="nav-link" href="'. $url .'/proses-support.php?msg=daftar-transaksi" onclick="handleMenuClick(this)">Daftar Transaksi</a>
+    </li>';
 
     // query keranjang
     // cek user
@@ -96,6 +100,7 @@ require_once 'header.php';
                         <li class="nav-item">
                             <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
                         </li>
+                        <?=$daftarTransaksi?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Support

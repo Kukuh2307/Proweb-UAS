@@ -8,7 +8,7 @@ require_once '../PrakwebUas/component/navbar.php';
         <div class="row">
             <div class="card-container">
                 <?php
-                $querySelect = mysqli_query($koneksi, "SELECT * FROM barang");
+                $querySelect = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC");
                 while ($data = mysqli_fetch_array($querySelect)) {
                     $rating = $data['rating'];
                 ?>

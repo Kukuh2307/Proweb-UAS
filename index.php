@@ -45,6 +45,8 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/keranjang.php';
 } elseif($msg == 'searching') {
     require_once '../PrakwebUas/searching.php';
+} elseif($msg == 'daftar-transaksi') {
+    require_once '../PrakwebUas/daftar-transaksi.php';
 } else{
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';
