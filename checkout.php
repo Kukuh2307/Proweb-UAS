@@ -65,11 +65,12 @@ $email = $data['email'];
                             $harga = $data['harga'];
                             $total = $data['total'];
 
-                            $totalBelanja += $total; // Menambahkan total belanja dengan total dari setiap barang
+                            $totalBelanja += $total; 
 
                     ?>
                             <tr>
                                 <input type="hidden" name="idBarang[]" value="<?= $data['id'] ?>">
+                                <input type="hidden" name="subtotal" value="<?= $totalBelanja ?>">
                                 <th scope="row">
                                     <?= $no++ ?>
                                 </th>
@@ -112,50 +113,8 @@ $email = $data['email'];
                         <label for="provinsi">Provinsi</label>
                         <select name="provinsi" id="provinsi" class="form-control">
                             <option value="">Pilih Provinsi</option>
-                            <!-- Mengambil data provinsi dari API RajaOngkir -->
-                            <?php
-                            $curlProvinsi = curl_init();
-
-                            curl_setopt_array($curlProvinsi, array(
-                                CURLOPT_URL => "https://api.rajaongkir.com/starter/province",
-                                CURLOPT_RETURNTRANSFER => true,
-                                CURLOPT_ENCODING => "",
-                                CURLOPT_MAXREDIRS => 10,
-                                CURLOPT_TIMEOUT => 30,
-                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                CURLOPT_CUSTOMREQUEST => "GET",
-                                CURLOPT_HTTPHEADER => array(
-                                    // Silakan isi dengan api_key dari RajaOngkir.com
-                                    "key: d20bee84e0494e1b5b4c0d764dd31d07"
-                                ),
-                            ));
-
-                            $responseProvinsi = curl_exec($curlProvinsi);
-                            $errProvinsi = curl_error($curlProvinsi);
-
-                            curl_close($curlProvinsi);
-
-                            if ($errProvinsi) {
-                                echo "cURL Error #:" . $errProvinsi;
-                            } else {
-                                $arrayResponseProvinsi = json_decode($responseProvinsi, TRUE);
-                                $dataProvinsi = $arrayResponseProvinsi['rajaongkir']['results'];
-
-                                foreach ($dataProvinsi as $provinsi) {
-                                    echo "<option value='" . $provinsi['province_id'] . "'>" . $provinsi['province'] . "</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                </div>
-
-                <!-- Bagian Opsi Distrik -->
-                <div class="col-12 col-md-3">
-                    <div class="form-group">
-                        <label for="distrik">Distrik</label>
-                        <select name="distrik" id="distrik" class="form-control">
-                            <option value="">Pilih Distrik</option>
+                            <!-- Mengambil data provinsi dari file dataprovinsi.php -->
+                            <?php include 'dataprovinsi.php'; ?>
                         </select>
                     </div>
                 </div>
@@ -184,6 +143,41 @@ $email = $data['email'];
                     });
                 </script>
 
+                <!-- Bagian Opsi Distrik -->
+                <div class="col-12 col-md-3">
+                    <div class="form-group">
+                        <label for="distrik">Distrik</label>
+                        <select name="distrik" id="distrik" class="form-control">
+                            <option value="">Pilih Distrik</option>
+                        </select>
+                    </div>
+                </div>
+
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                    $(document).ready(function() {
+                        // Mengambil data distrik berdasarkan provinsi yang dipilih
+                        $('#provinsi').on('change', function() {
+                            var idProvinsi = $(this).val();
+                            if (idProvinsi !== '') {
+                                $.ajax({
+                                    url: 'datadistrik.php', // Ganti dengan file dataprovinsi.php yang sesuai
+                                    type: 'POST',
+                                    data: {
+                                        id_provinsi: idProvinsi
+                                    },
+                                    success: function(response) {
+                                        $('#distrik').html(response);
+                                    }
+                                });
+                            } else {
+                                $('#distrik').html('<option value="">Pilih Distrik</option>');
+                            }
+                        });
+                    });
+                </script>
+
+
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="ekspedisi">Ekspedisi</label>
@@ -206,22 +200,22 @@ $email = $data['email'];
             </div>
             <div class="form-group" style="margin-top: 10px;">
 
-            <div class="row justify-content-between align-items-start g-2 mt-5">
-                <div class="col-12">
-                    <h2>METODE PEMBAYARAN</h2>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="form-group">
-                        <label for="metode">metode</label>
-                        <select name="metode" id="metode" class="form-control">
-                            <option value="" selected>Pilih Metode</option>
-                            <option value="Tranfer Bank">Tranfer Bank</option>
-                            <option value="COD">COD</option>
-                            <option value="E-Money">E-Money</option>
-                        </select>
+                <div class="row justify-content-between align-items-start g-2 mt-5">
+                    <div class="col-12">
+                        <h2>METODE PEMBAYARAN</h2>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="form-group">
+                            <label for="metode">metode</label>
+                            <select name="metode" id="metode" class="form-control">
+                                <option value="" selected>Pilih Metode</option>
+                                <option value="Tranfer Bank">Tranfer Bank</option>
+                                <option value="COD">COD</option>
+                                <option value="E-Money">E-Money</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
                 <button class="btn" name="checkout" style="background-color:#008744; color:white">Checkout</button>
             </div>
         </div>

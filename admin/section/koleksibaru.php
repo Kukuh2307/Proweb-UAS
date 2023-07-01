@@ -29,7 +29,7 @@
                         <tbody>
                             <?php
                             $no = 1;
-                            $querySelect = mysqli_query($koneksi, "SELECT * FROM barang");
+                            $querySelect = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC");
                             while($data = mysqli_fetch_array($querySelect)){
                                 ?>
 

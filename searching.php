@@ -1,14 +1,18 @@
 <?php
 require_once 'config.php';
 require_once '../PrakwebUas/component/navbar.php';
-
+if (isset($_GET['cari'])) {
+    // ambil data di database
+    $cari = $_GET['cari'];
+    $caridecode = urldecode($cari);
+}
 ?>
 <section id="delivery-information" style="margin-bottom: 0px;">
     <div class="container" style="margin-top: 6rem; text-align: justify">
         <div class="row">
             <div class="card-container">
                 <?php
-                $querySelect = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC");
+                $querySelect = mysqli_query($koneksi, "SELECT * FROM barang WHERE nama LIKE '%$caridecode%' OR kategori LIKE '%$caridecode%' OR deskripsi LIKE '%$caridecode%'");
                 while ($data = mysqli_fetch_array($querySelect)) {
                     $rating = $data['rating'];
                 ?>
