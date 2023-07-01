@@ -21,15 +21,22 @@ function handleMenuClick(element) {
 }
 
 // login
+$(document).ready(function(){
+    $(".veen .rgstr-btn button[name='regist']").click(function(){
+        $('.veen .wrapper').addClass('move');
+    });
+});
+
 $(document).ready(function () {
     $(".veen .rgstr-btn button").click(function () {
-        $('.veen .wrapper').addClass('move');
+        $(".veen .wrapper").addClass("move");
         // $('.body').css('background', '#e0b722');
         $(".veen .login-btn button").removeClass('active');
         $(this).addClass('active');
+
     });
     $(".veen .login-btn button").click(function () {
-        $('.veen .wrapper').removeClass('move');
+        $(".veen .wrapper").removeClass("move");
         // $('.body').css('background', '#ff4931');
         $(".veen .rgstr-btn button").removeClass('active');
         $(this).addClass('active');
@@ -44,6 +51,7 @@ var header = document.getElementById("header"); // Ambil elemen dengan id 'heade
 function changeBackground() {
     var activeItem = document.querySelector(".carousel-item.active"); // Ambil elemen dengan kelas 'carousel-item' yang memiliki kelas 'active'
     var backgroundImage = activeItem.style.backgroundImage; // Ambil URL latar belakang foto dari elemen yang aktif
+
     header.style.backgroundImage = backgroundImage; // Set latar belakang foto pada elemen dengan id 'header'
 }
 // Tambahkan event listener untuk event 'slid.bs.carousel' yang terjadi saat slide berganti

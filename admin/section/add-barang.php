@@ -87,7 +87,7 @@
                             <div class="col-4 text-center px-5">
                                 <img src="<?= $url ?>/img/default.png" alt="default" class="mb-2" width="40%">
                                 <input type="file" name="image" class="form-control form-control-sm">
-                                <small class="text-secondary">Pilih Foto dengan type PNG,JPG atau JPEG max 1 MB (98x98)</small>
+                                <small class="text-secondary">Pilih Foto dengan type PNG,JPG atau JPEG max 1 MB (370x370)</small>
                             </div>
                         </div>
                     </div>

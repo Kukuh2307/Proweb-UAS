@@ -20,11 +20,6 @@ if (!isset($_SESSION['Login'])) {
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw text-black"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end text-black" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" data-bs-toggle="modal" href="#mdlProfileUser">Profile User</a></li>
-                    <li><a class="dropdown-item" href="<?= $url ?>/Sekolah/profile-sekolah.php">Profile Sekolah</a></li>
-                    <li>
-                        <hr class="dropdown-divider" />
-                    </li>
                     <li><a class="dropdown-item" href="<?= $url ?>/auth/proses-logout.php?role=admin">Logout</a></li>
                 </ul>
             </li>

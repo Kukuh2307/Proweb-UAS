@@ -32,10 +32,11 @@ window.addEventListener('DOMContentLoaded', event => {
     ratingValue.textContent = initialRating;
 
     // Menangkap perubahan nilai rating
-    ratingInput.addEventListener('input', function() {
+    ratingInput.addEventListener('input', function () {
         var currentRating = ratingInput.value;
         ratingValue.textContent = currentRating;
     });
+
 
     // summernote
     $(document).ready(function () {

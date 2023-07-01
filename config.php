@@ -1,4 +1,5 @@
 <?php
+// https://source.unsplash.com/600x300?Cybersecurity
 $koneksi = new mysqli("localhost", "root", "", "db_prakwebuas");
 $url = "http://localhost/PrakwebUas";
 

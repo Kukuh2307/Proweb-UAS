@@ -6,11 +6,15 @@ if (!isset($_SESSION['Login'])) {
     $tombol = '<a class="btn btn-primary" href="' . $url . '/auth/login.php" style="background-color:#008744; color:white ><i class="fa-solid fa-user"></i> Masuk / Daftar</a>';
     $user = "";
     $dataKeranjang = "";
+    $daftarTransaksi = "";
 } else {
     $namaPengguna = isset($_SESSION['Username']) ? $_SESSION['Username'] : ''; // Menyimpan nama pengguna dari session
     $keterangan = '<a class="btn m-1" href="#" style="color: var(--color1); border: 2px solid var(--color1);"><i class="fa-solid fa-user"></i> ' . $namaPengguna . '</a>';
     $tombol = '<a href="' . $url . '/auth/proses-logout.php" class="btn btn-danger">Logout</a>';
     $user = $_SESSION['Username'];
+    $daftarTransaksi = '<li class="nav-item">
+    <a class="nav-link" href="' . $url . '/proses-support.php?msg=daftar-transaksi" onclick="handleMenuClick(this)">Daftar Transaksi</a>
+    </li>';
 
     // query keranjang
     // cek user
@@ -48,9 +52,9 @@ require_once 'header.php';
                 </ul>
 
                 <div class="collapse navbar-collapse">
-                    <form class="form-inline my-2 my-lg-0 mx-auto">
-                        <input class="form-control" type="search" placeholder="Cari barang..." aria-label="Search">
-                        <button class="btn my-2 my-sm-0" style="background-color:#008744; color:white" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <form class="form-inline my-2 my-lg-0 mx-auto" action="proses-searching.php" method="post">
+                        <input class="form-control" type="search" placeholder="Cari barang..." aria-label="Search" name="searching">
+                        <button class="btn my-2 my-sm-0" style="background-color:#008744; color:white" type="submit" name="cari"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
 
                     <ul class="navbar-nav">
@@ -96,6 +100,7 @@ require_once 'header.php';
                         <li class="nav-item">
                             <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
                         </li>
+                        <?= $daftarTransaksi ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Support
@@ -121,72 +126,68 @@ require_once 'header.php';
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-10 pl-0">
-                            <a class="btn btn-primary" href="#"><i class="bx bxs-user-circle mr-1"></i> Log In</a>
+                            <a class="btn" style="background-color: #008744; color: white;" href="#"><i class="bx bxs-user-circle mr-1"></i> Log In</a>
                         </div>
 
                         <div class="col-2 text-left">
                             <button type="button" id="sidebarCollapseX" class="btn btn-link">
-                                <i class="bx bx-x icon-single"></i>
+                                <i class="fa-solid fa-times"></i>
                             </button>
+
                         </div>
                     </div>
                 </div>
             </div>
 
-            <ul class="list-unstyled components links">
-                <li class="active">
-                    <a href="#"><i class="bx bx-home mr-3"></i> Home</a>
+            <ul class="list-unstyled components links tew">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#" onclick="handleMenuClick(this)">Home</a>
                 </li>
-                <li>
-                    <a href="#"><i class="bx bx-carousel mr-3"></i> Products</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#collection" onclick="handleMenuClick(this)">Collection</a>
                 </li>
-                <li>
-                    <a href="#"><i class="bx bx-book-open mr-3"></i> Schools</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#blog" onclick="handleMenuClick(this)">Blogs</a>
                 </li>
-                <li>
-                    <a href="#"><i class="bx bx-crown mr-3"></i> Publishers</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#mitra" onclick="handleMenuClick(this)">Mitra</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#tentang-kami" onclick="handleMenuClick(this)">Tentang Kami</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
+                </li>
+                <?= $daftarTransaksi ?>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-help-circle mr-3"></i>
                         Support</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Delivery Information</a>
+                            <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=informasi-pengiriman">Informasi Pengiriman</a>
                         </li>
                         <li>
-                            <a href="#">Privacy Policy</a>
+                            <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=privacy-policy">Kebijakan pribadi</a>
                         </li>
+
                         <li>
-                            <a href="#">Terms & Conditions</a>
+                            <a class="dropdown-item" href="<?= $url ?>/proses-support.php?msg=term-and-condition">Syarat dan ketentuan</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="bx bx-phone mr-3"></i> Contact</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php#kontak" onclick="handleMenuClick(this)">Kontak</a>
+                </li>
                 </li>
             </ul>
 
-            <h6 class="text-uppercase mb-1">Categories</h6>
+            <!-- <h6 class="text-uppercase mb-1">Categories</h6>
             <ul class="list-unstyled components mb-3">
                 <li>
                     <a href="#">Category 1</a>
                 </li>
-                <li>
-                    <a href="#">Category 1</a>
-                </li>
-                <li>
-                    <a href="#">Category 1</a>
-                </li>
-                <li>
-                    <a href="#">Category 1</a>
-                </li>
-                <li>
-                    <a href="#">Category 1</a>
-                </li>
-                <li>
-                    <a href="#">Category 1</a>
-                </li>
-            </ul>
+            </ul> -->
 
             <ul class="social-icons">
                 <li><a href="#" target="_blank" title=""><i class="bx bxl-facebook-square"></i></a></li>
