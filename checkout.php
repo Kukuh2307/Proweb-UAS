@@ -65,7 +65,7 @@ $email = $data['email'];
                             $harga = $data['harga'];
                             $total = $data['total'];
 
-                            $totalBelanja += $total; // Menambahkan total belanja dengan total dari setiap barang
+                            $totalBelanja += $total; 
 
                     ?>
                             <tr>
