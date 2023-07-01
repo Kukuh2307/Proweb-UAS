@@ -15,7 +15,7 @@ $user = $_SESSION['Username'];
                     <th scope="col">Metode</th>
                     <th scope="col">Paket</th>
                     <th scope="col">Waktu</th>
-                    <th scope="col">Aksi</th>
+                    <th scope="col">Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,9 +46,8 @@ $user = $_SESSION['Username'];
                                 <?= $data['waktu'] ?>
                             </td>
                             <td align="left">
-                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?=$id?>" class="btn btn-sm" style="background-color:#008744; color:white"
-                                    title="detail">
-                                    <i class="fa-solid fa-circle-info"></i>
+                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?=$id?>" >
+                                    <p style="background-color:#008744; color:white; text-align: center; width: 4rem; margin-top: 0.2rem;">Sukses</p>
                                 </a>
 
                             </td>
