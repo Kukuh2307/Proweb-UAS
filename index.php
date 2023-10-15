@@ -23,6 +23,12 @@ if (isset($_GET['id'])) {
     $id = [''];
 }
 
+if (isset($_GET['email'])) {
+    $email = $_GET['email'];
+} else {
+    $email = [''];
+}
+
 if (isset($_GET['cari'])) {
     $cari = $_GET['cari'];
 } else {
@@ -35,19 +41,19 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/privacy-policy.php';
 } elseif ($msg == 'term-and-condition') {
     require_once '../PrakwebUas/term-and-condition.php';
-} elseif($msg == 'barang') {
+} elseif ($msg == 'barang') {
     require_once '../PrakwebUas/barang.php';
-} elseif($msg == 'detail-barang') {
+} elseif ($msg == 'detail-barang') {
     require_once '../PrakwebUas/detail-barang.php';
-} elseif($msg == 'detail-artikel') {
+} elseif ($msg == 'detail-artikel') {
     require_once '../PrakwebUas/detail-artikel.php';
-} elseif($msg == 'keranjang') {
+} elseif ($msg == 'keranjang') {
     require_once '../PrakwebUas/keranjang.php';
-} elseif($msg == 'searching') {
+} elseif ($msg == 'searching') {
     require_once '../PrakwebUas/searching.php';
-} elseif($msg == 'daftar-transaksi') {
+} elseif ($msg == 'daftar-transaksi') {
     require_once '../PrakwebUas/daftar-transaksi.php';
-} else{
+} else {
     require_once '../PrakwebUas/component/jumbotron.php';
     require_once '../PrakwebUas/component/collection.php';
     require_once '../PrakwebUas/component/blog.php';
