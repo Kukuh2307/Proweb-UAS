@@ -3,15 +3,15 @@ session_start();
 
 if (isset($_GET['user'])) {
     $user = $_GET['user'];
+    if (isset($_GET['email'])) {
+        $key = "resetpassword";
+        $decript = $_GET['email'];
+        $email = openssl_decrypt($decript, "AES-128-ECB", $key);
+    } else {
+        $email = [''];
+    }
 } else {
     $user = [''];
-}
-if (isset($_GET['email'])) {
-    $key = "resetpassword";
-    $decript = $_GET['email'];
-    $email = openssl_decrypt($decript, "AES-128-ECB", $key);
-} else {
-    $email = [''];
 }
 ?>
 <!DOCTYPE html>
@@ -23,6 +23,13 @@ if (isset($_GET['email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style-login.css">
     <title>Reset Password <?= $user ?></title>
+    <style>
+        .alert {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,12 +48,16 @@ if (isset($_GET['email'])) {
                         <input type="hidden" name="email" id="email" value="<?= $email ?>">
                     </div>
                     <div class="passwd">
-                        <input type="password" name="password">
+                        <input type="password" name="oldpassword">
                         <label>Password</label>
                     </div>
                     <div class="passwd">
+                        <input type="password" name="newpassword">
+                        <label>Masukkan password baru</label>
+                    </div>
+                    <div class="passwd">
                         <input type="password" name="repassword">
-                        <label>Masukkan konfirmasi password</label>
+                        <label>Masukkan konfirmasi password baru</label>
                     </div>
                     <div class="submit">
                         <button class="dark" name="reset">Reset</button>
