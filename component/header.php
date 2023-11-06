@@ -18,10 +18,17 @@ require_once 'config.php';
     <!-- swiper -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- custom css -->
-    <link rel="stylesheet" href="<?=$url?>/css/style.css">
-    <link rel="stylesheet" href="<?=$url?>/css/style-login.css">
-    <link rel="stylesheet" href="<?=$url?>/css/card.css">
+    <link rel="stylesheet" href="<?= $url ?>/css/style.css">
+    <link rel="stylesheet" href="<?= $url ?>/css/style-login.css">
+    <link rel="stylesheet" href="<?= $url ?>/css/card.css">
     <!-- delivery-information -->
     <link rel="stylesheet" href="delivery-information.html">
     <title>KISAWA MART</title>
+    <style>
+        .alert {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>

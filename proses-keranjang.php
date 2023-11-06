@@ -22,9 +22,8 @@ if (isset($_POST['submit'])) {
             echo mysqli_error($koneksi);
         } else {
             $_SESSION['msg'] = "Barang berhasil ditambahkan ke keranjang.";
-            header("location: " . $url . "/proses-support.php?msg=keranjang");
+            header("location: " . $url . "/proses-support.php?msg=keranjang&alert=addbarang");
             exit;
         }
     }
 }
-?>

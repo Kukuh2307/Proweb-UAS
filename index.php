@@ -23,6 +23,12 @@ if (isset($_GET['id'])) {
     $id = [''];
 }
 
+if (isset($_GET['alert'])) {
+    $alert = $_GET['alert'];
+} else {
+    $alert = [''];
+}
+
 if (isset($_GET['email'])) {
     $email = $_GET['email'];
 } else {
@@ -34,6 +40,7 @@ if (isset($_GET['cari'])) {
 } else {
     $cari = [''];
 }
+
 require_once 'component/navbar.php';
 if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/informasi-pengiriman.php';

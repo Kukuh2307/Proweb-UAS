@@ -32,6 +32,25 @@ require_once 'header.php';
 ?>
 
 <body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var alertBox = document.getElementById('errorAlert');
+            if (alertBox) {
+                setTimeout(function() {
+                    alertBox.style.display = 'none';
+                }, 3000);
+            }
+
+            var alertBox2 = document.getElementById('errorAlert2');
+            if (alertBox2) {
+                setTimeout(function() {
+                    alertBox2.style.display = 'none';
+                }, 3000);
+            }
+        });
+    </script>
+
     <!-- navbar -->
     <nav class="fixed-top">
         <nav class="navbar navbar-expand-md navbar-light bg-light main-menu" style="box-shadow:none">

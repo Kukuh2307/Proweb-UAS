@@ -4,9 +4,24 @@ require_once 'config.php';
 require_once '../PrakwebUas/component/navbar.php';
 
 $user = $_SESSION['Username'];
+
+// cek apakah ada msg 
+if (isset($_GET['alert'])) {
+    $alert = $_GET['alert'];
+    if ($alert == 'deletefromkeranjang') {
+        $notif = 'Berhasil menghapus barang dari keranjang';
+    } elseif ($alert == 'addbarang') {
+        $notif = 'Berhasil menambahkan barang ke keranjang';
+    }
+} else {
+    $alert = '';
+}
 ?>
 <section id="keranjang" style="margin-bottom: 0px;">
     <div class="container" style="margin-top: 4rem;">
+        <div class="alert alert-success" style="margin-top: 9rem; position: absolute;" id="errorAlert2">
+            <?= $notif ?>
+        </div>
         <table class="table table-striped table">
             <thead>
                 <tr class="">
@@ -34,7 +49,7 @@ $user = $_SESSION['Username'];
                         $banyak = $data['banyak'];
                         $harga = $data['harga'];
                         $total = $data['total'];
-                        ?>
+                ?>
                         <tr>
                             <th scope="row">
                                 <?= $no++ ?>
@@ -52,13 +67,11 @@ $user = $_SESSION['Username'];
                                 <?= number_format($data['total']) ?>
                             </td>
                             <td align="left">
-                                <a href="<?= $url ?>/hapus-keranjang.php?id=<?=$id?>" class="btn btn-sm btn-danger"
-                                    title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i
-                                        class="fa-solid fa-trash"></i></a>
+                                <a href="<?= $url ?>/hapus-keranjang.php?id=<?= $id ?>" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data??')"><i class="fa-solid fa-trash"></i></a>
 
                             </td>
                         </tr>
-                        <?php
+                <?php
                     }
                 } else {
                     echo "gagal";
@@ -68,7 +81,7 @@ $user = $_SESSION['Username'];
             </tbody>
         </table>
         <a href="checkout.php">
-        <button class="btn" style="background-color:#008744; color:white">Checkout</button>
+            <button class="btn" style="background-color:#008744; color:white">Checkout</button>
         </a>
     </div>
 </section>

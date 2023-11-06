@@ -106,7 +106,7 @@ if (isset($_POST['checkout'])) {
 
                 // mengupdate stok barang
                 // Mengupdate jumlah stok barang
-                $queryUpdateStok = mysqli_query($koneksi, "UPDATE barang SET stok = stok - '$banyak' WHERE id = '$idBarang'");  
+                $queryUpdateStok = mysqli_query($koneksi, "UPDATE barang SET stok = stok - '$banyak' WHERE id = '$idBarang'");
 
                 // Redirect ke halaman sukses atau halaman terima kasih
                 header("Location: index.php");
