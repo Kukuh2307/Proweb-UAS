@@ -50,6 +50,8 @@ if ($msg == 'informasi-pengiriman') {
     require_once '../PrakwebUas/term-and-condition.php';
 } elseif ($msg == 'barang') {
     require_once '../PrakwebUas/barang.php';
+} elseif ($msg == 'detail-transaksi') {
+    require_once '../PrakwebUas/proses-download.php';
 } elseif ($msg == 'detail-barang') {
     require_once '../PrakwebUas/detail-barang.php';
 } elseif ($msg == 'detail-artikel') {

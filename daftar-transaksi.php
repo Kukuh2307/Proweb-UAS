@@ -28,7 +28,7 @@ $user = $_SESSION['Username'];
                 if ($querySelect) {
                     while ($data = mysqli_fetch_array($querySelect)) {
                         $id = $data['id'];
-                        ?>
+                ?>
                         <tr>
                             <th scope="row">
                                 <?= $no++ ?>
@@ -46,13 +46,19 @@ $user = $_SESSION['Username'];
                                 <?= $data['waktu'] ?>
                             </td>
                             <td align="left">
-                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?=$id?>" >
-                                    <p style="background-color:#008744; color:white; text-align: center; width: 4rem; margin-top: 0.2rem;">Sukses</p>
+                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?= $id ?>">
+                                    <p style="background-color:#008744; color:white; text-align: center; width: 4rem; margin-top: 0.5rem;">Sukses</p>
                                 </a>
-
+                            </td>
+                            <!-- tombol download -->
+                            <td align="left">
+                                <!-- Add a download button -->
+                                <a href="<?= $url ?>/proses-download.php?msg=detail-transaksi&id=<?= $data['id'] ?>">
+                                    <div class="btn btn-success"><i class="fa-solid fa-download"></i> Download</div>
+                                </a>
                             </td>
                         </tr>
-                        <?php
+                <?php
                     }
                 } else {
                     echo "gagal";
