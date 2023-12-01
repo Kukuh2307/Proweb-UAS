@@ -4,6 +4,10 @@ if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
     if ($msg == 'succesresetpassword') {
         $alert = 'Password berhasil di reset';
+    } elseif ($msg = 'falsepassword') {
+        $alert = 'Password yang anda masukkan salah';
+    } elseif ($msg = 'usernotfound') {
+        $aler = 'Username tidak ditemukan';
     }
 } else {
     $msg = '';
@@ -33,13 +37,16 @@ if (isset($_GET['msg'])) {
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- capcha -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var alertBox = document.getElementById('errorAlert');
             if (alertBox) {
                 setTimeout(function() {
                     alertBox.style.display = 'none';
-                }, 3000); // Mengatur alert untuk menghilang setelah 3 detik
+                }, 3000);
             }
         });
     </script>
@@ -69,13 +76,18 @@ if (isset($_GET['msg'])) {
                         <input type="password" name="password">
                         <label>Password</label>
                     </div>
+                    <!-- capcha -->
+                    <div class="capcha">
+                        <div class="g-recaptcha" name='g-recaptcha' data-sitekey="6LfmJSEpAAAAAH4Ay9sQ0QLwcvQfHaebwaDYUtIQ"></div>
+                        <br />
+                    </div>
                     <div class="lupa-password">
                         <a href="lupa-password.php">
                             <p>lupa password??</p>
                         </a>
                     </div>
                     <div class="submit">
-                        <button class="dark" name="login">Login</button>
+                        <button class="dark" name="login" type="submit">Login</button>
                     </div>
                 </form>
                 <form id="register" tabindex="502" action="proses-tambah-user.php" method="post">
