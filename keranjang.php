@@ -12,6 +12,8 @@ if (isset($_GET['alert'])) {
         $notif = 'Berhasil menghapus barang dari keranjang';
     } elseif ($alert == 'addbarang') {
         $notif = 'Berhasil menambahkan barang ke keranjang';
+    } else {
+        $notif = '';
     }
 } else {
     $alert = '';
@@ -19,9 +21,15 @@ if (isset($_GET['alert'])) {
 ?>
 <section id="keranjang" style="margin-bottom: 0px;">
     <div class="container" style="margin-top: 4rem;">
-        <div class="alert alert-success" style="margin-top: 9rem; position: absolute;" id="errorAlert2">
-            <?= $notif ?>
-        </div>
+        <?php
+        if (!$alert == '') {
+        ?>
+            <div class="alert alert-success" style="margin-top: 9rem; position: absolute;" id="errorAlert2">
+                <?= $notif ?>
+            </div>
+        <?php
+        }
+        ?>
         <table class="table table-striped table">
             <thead>
                 <tr class="">
