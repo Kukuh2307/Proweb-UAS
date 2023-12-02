@@ -14,7 +14,6 @@ $dataUser = mysqli_fetch_array($querySelectUser);
 $username = $dataUser['nama_depan'];
 $namaLengkap = $dataUser['nama_lengkap'];
 $email = $dataUser['email'];
-
 ?>
 
 <form action="proses-checkout.php" method="POST">
@@ -174,7 +173,7 @@ $email = $dataUser['email'];
                 </div>
             </div>
 
-            <button class="btn" name="download" style="background-color:#008744; color:white" onclick="window.open('struk.php','_blank')">Cetak</button>
+            <a href="cetak-struk.php?id=<?= $data2['id'] ?>&user=<?= $data2['id_user'] ?>" class="btn" name="download" style="background-color:#008744; color:white">Cetak</a>
         </div>
     </section>
 </form>
