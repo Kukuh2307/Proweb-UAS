@@ -3,7 +3,7 @@ require_once 'config.php';
 require_once 'navbar.php';
 ?>
 <!-- header -->
-<header id="header" class="vh-100 carousel slide" data-ride="carousel">
+<header id="header" class="vh-100 carousel slide" data-ride="carousel" style=" overflow: hidden;">
     <div class="d-flex align-items-center carousel-inner">
         <?php
         $querySelect = mysqli_query($koneksi, "SELECT * FROM jumbotron");
@@ -15,7 +15,7 @@ require_once 'navbar.php';
         ?>
                 <div class="text-center carousel-item active custom-img" style="background-image: url('img/<?= $data['foto'] ?>');">
                     <h2 class="text-capitalize text-white" style="padding-top: 240px"><?= $data['heading1'] ?></h2>
-                    <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
+                    <h1 class="text-uppercase py-2 fw-bold text-white" style="width: 80%; margin: auto;"><?= $data['heading2'] ?></h1>
                     <a href="#" class="btn mt-3 text-uppercase" style=" margin-bottom: 210px;"><?= $data['tombol'] ?></a>
                 </div>
             <?php
@@ -24,7 +24,7 @@ require_once 'navbar.php';
             ?>
                 <div class="text-center carousel-item custom-img" style="background-image:url('img/<?= $data['foto'] ?>');">
                     <h2 class="text-capitalize text-white" style="padding-top: 240px"><?= $data['heading1'] ?></h2>
-                    <h1 class="text-uppercase py-2 fw-bold text-white"><?= $data['heading2'] ?></h1>
+                    <h1 class="text-uppercase py-2 fw-bold text-white" style="width: 80%; margin: auto;"><?= $data['heading2'] ?></h1>
                     <a href="#" class="btn mt-3 text-uppercase" style=" margin-bottom: 210px;"><?= $data['tombol'] ?></a>
                 </div>
         <?php

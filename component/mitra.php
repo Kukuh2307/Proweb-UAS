@@ -15,9 +15,9 @@ $data = mysqli_fetch_assoc($querySelect);
             $querySelectMitra = mysqli_query($koneksi, "SELECT * FROM mitra");
             while ($data = mysqli_fetch_array($querySelectMitra)) {
             ?>
-                <div class="<?=$data['nama']?>">
-                <!-- https://img.icons8.com/ios-filled/50/ibm.png -->
-                    <img width="612" height="612" src="<?=$url?>/img/<?=$data['foto']?>" alt="<?=$data['nama']?>" />
+                <div class="<?= $data['nama'] ?>">
+                    <!-- https://img.icons8.com/ios-filled/50/ibm.png -->
+                    <img width="612" height="612" style="filter: drop-shadow(16px 11px 22px #000000);" src="<?= $url ?>/img/<?= $data['foto'] ?>" alt="<?= $data['nama'] ?>" />
                 </div>
             <?php
             }

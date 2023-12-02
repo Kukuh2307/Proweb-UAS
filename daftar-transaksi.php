@@ -22,13 +22,13 @@ $user = $_SESSION['Username'];
                 <?php
                 // query Select User
                 $no = 1;
-                $querySelect = mysqli_query($koneksi, "SELECT * FROM checkout
+                $querySelect = mysqli_query($koneksi, "SELECT checkout.id,checkout.subtotal AS subtotal,checkout.metode AS metode,checkout.paket AS paket,checkout.waktu AS waktu FROM checkout
                 JOIN pengguna ON checkout.id_user = pengguna.id
                 WHERE pengguna.nama_depan = '$user'");
                 if ($querySelect) {
                     while ($data = mysqli_fetch_array($querySelect)) {
                         $id = $data['id'];
-                        ?>
+                ?>
                         <tr>
                             <th scope="row">
                                 <?= $no++ ?>
@@ -46,13 +46,19 @@ $user = $_SESSION['Username'];
                                 <?= $data['waktu'] ?>
                             </td>
                             <td align="left">
-                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?=$id?>" >
-                                    <p style="background-color:#008744; color:white; text-align: center; width: 4rem; margin-top: 0.2rem;">Sukses</p>
+                                <a href="<?= $url ?>/proses-support.php?msg=detail-transaksi&id=<?= $id ?>">
+                                    <p style="background-color:#008744; color:white; text-align: center; width: 4rem; margin-top: 0.5rem;">Sukses</p>
                                 </a>
-
+                            </td>
+                            <!-- tombol download -->
+                            <td align="left">
+                                <!-- Add a download button -->
+                                <a href="<?= $url ?>/proses-download.php?msg=detail-transaksi&id=<?= $data['id'] ?>">
+                                    <div class="btn btn-warning"><i class="fa-solid fa-eye"></i> Detail Transaksi</div>
+                                </a>
                             </td>
                         </tr>
-                        <?php
+                <?php
                     }
                 } else {
                     echo "gagal";

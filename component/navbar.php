@@ -108,6 +108,9 @@ require_once 'header.php';
                             <a class="nav-link" href="index.php#collection" onclick="handleMenuClick(this)">Collection</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="index.php#blog" onclick="handleMenuClick(this)">Blogs</a>
                         </li>
                         <li class="nav-item">
@@ -115,9 +118,6 @@ require_once 'header.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="index.php#tentang-kami" onclick="handleMenuClick(this)">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?= $url ?>/proses-support.php?msg=barang" onclick="handleMenuClick(this)">Barang</a>
                         </li>
                         <?= $daftarTransaksi ?>
                         <li class="nav-item dropdown">
