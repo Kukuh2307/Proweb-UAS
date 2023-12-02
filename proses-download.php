@@ -8,12 +8,15 @@ if (isset($_GET['id'])) {
 } else {
     $id = '';
 }
-$querySelect = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE nama_depan='$user'");
-$data = mysqli_fetch_array($querySelect);
-$username = $data['nama_depan'];
-$namaLengkap = $data['nama_lengkap'];
-$email = $data['email'];
+
+$querySelectUser = mysqli_query($koneksi, "SELECT * FROM pengguna WHERE nama_depan='$user'");
+$dataUser = mysqli_fetch_array($querySelectUser);
+$username = $dataUser['nama_depan'];
+$namaLengkap = $dataUser['nama_lengkap'];
+$email = $dataUser['email'];
+
 ?>
+
 <form action="proses-checkout.php" method="POST">
     <section id="keranjang" style="margin-bottom: 0px; background-color: white;">
         <div class="container" style="margin-top: 4rem;">
@@ -29,7 +32,7 @@ $email = $data['email'];
                         <?php
                         echo $username . "<br>";
                         echo $namaLengkap . "<br>";
-                        echo $email . "<br>";
+                        echo strtolower($email) . "<br>";
                         ?>
                     </p>
                 </div>
@@ -43,7 +46,7 @@ $email = $data['email'];
                     </p>
                 </div>
             </div>
-            <table class="table table-striped table">
+            <table class="table table-striped table" style="width: 100%; table-layout: fixed; margin: auto;">
                 <thead>
                     <tr class="">
                         <th scope="col">No</th>
@@ -56,14 +59,18 @@ $email = $data['email'];
                 <tbody>
                     <?php
                     $no = 1;
-                    $totalBelanja = 0; // Inisialisasi variabel total belanja
-                    $querySelect = mysqli_query($koneksi, "SELECT barang.nama,checkout_detail.id_barang AS nama_barang FROM checkout_detail 
-                    JOIN barang ON checkout_detail.id_barang = barang.id
-                    WHERE checkout_detail.id_checkout = $id");
-                    if ($querySelect) {
-                        while ($data = mysqli_fetch_array($querySelect)) {
-                            $id = $data['id'];
-                            $nama_barang = $data['nama_barang'];
+                    $totalBelanja = 0;
+
+                    // Menggunakan parameter $id pada query
+                    $querySelectCheckout = mysqli_query($koneksi, "SELECT barang.nama, checkout_detail.banyak, barang.harga, (barang.harga * checkout_detail.banyak) AS total,checkout.provinsi,checkout.distrik,checkout.ekspedisi,checkout.paket
+                        FROM checkout_detail
+                        JOIN barang ON checkout_detail.id_barang = barang.id
+                        JOIN checkout ON checkout_detail.id_checkout = checkout.id 
+                        WHERE checkout.id = '$id'");
+
+                    if ($querySelectCheckout) {
+                        while ($data = mysqli_fetch_array($querySelectCheckout)) {
+                            $nama_barang = $data['nama'];
                             $banyak = $data['banyak'];
                             $harga = $data['harga'];
                             $total = $data['total'];
@@ -78,16 +85,16 @@ $email = $data['email'];
                                     <?= $no++ ?>
                                 </th>
                                 <td align="left">
-                                    <?= $data['nama_barang'] ?>
+                                    <?= $nama_barang ?>
                                 </td>
                                 <td align="left">
-                                    <?= $data['banyak'] ?>
+                                    <?= $banyak ?>
                                 </td>
                                 <td align="left">
-                                    <?= number_format($data['harga']) ?>
+                                    <?= number_format($harga) ?>
                                 </td>
                                 <td align="left">
-                                    <?= number_format($data['total']) ?>
+                                    <?= number_format($total) ?>
                                 </td>
                             </tr>
                     <?php
@@ -104,123 +111,70 @@ $email = $data['email'];
                     </tr>
                 </tbody>
             </table>
-
+            <!-- Sisipkan input hidden untuk menyimpan nilai $id -->
+            <input type="hidden" name="id_checkout" value="<?= $id ?>">
+            <?php
+            $querySelectCheckout2 = mysqli_query($koneksi, "SELECT * FROM checkout where id='$id'");
+            $data2 = mysqli_fetch_array($querySelectCheckout2);
+            ?>
+            <!-- Bagian Opsi Provinsi -->
             <div class="row justify-content-between align-items-start g-2">
                 <div class="col-12">
                     <h2>PENGIRIMAN</h2>
                 </div>
 
-                <!-- Bagian Opsi Provinsi -->
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="provinsi">Provinsi</label>
-                        <select name="provinsi" id="provinsi" class="form-control">
-                            <option value="">Pilih Provinsi</option>
-                            <!-- Mengambil data provinsi dari file dataprovinsi.php -->
-                            <?php include 'dataprovinsi.php'; ?>
+                        <select readonly name="provinsi" id="provinsi" class="form-control">
+                            <option value=""><?= $data2['provinsi'] ?></option>
                         </select>
                     </div>
                 </div>
 
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                    $(document).ready(function() {
-                        // Mengambil data distrik berdasarkan provinsi yang dipilih
-                        $('#provinsi').on('change', function() {
-                            var idProvinsi = $(this).val();
-                            if (idProvinsi !== '') {
-                                $.ajax({
-                                    url: 'datadistrik.php',
-                                    type: 'POST',
-                                    data: {
-                                        id_provinsi: idProvinsi
-                                    },
-                                    success: function(response) {
-                                        $('#distrik').html(response);
-                                    }
-                                });
-                            } else {
-                                $('#distrik').html('<option value="">Pilih Distrik</option>');
-                            }
-                        });
-                    });
-                </script>
-
-                <!-- Bagian Opsi Distrik -->
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="distrik">Distrik</label>
-                        <select name="distrik" id="distrik" class="form-control">
-                            <option value="">Pilih Distrik</option>
+                        <select readonly name="distrik" id="distrik" class="form-control">
+                            <option value=""><?= $data2['distrik'] ?></option>
                         </select>
                     </div>
                 </div>
-
-                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-                <script>
-                    $(document).ready(function() {
-                        // Mengambil data distrik berdasarkan provinsi yang dipilih
-                        $('#provinsi').on('change', function() {
-                            var idProvinsi = $(this).val();
-                            if (idProvinsi !== '') {
-                                $.ajax({
-                                    url: 'datadistrik.php', // Ganti dengan file dataprovinsi.php yang sesuai
-                                    type: 'POST',
-                                    data: {
-                                        id_provinsi: idProvinsi
-                                    },
-                                    success: function(response) {
-                                        $('#distrik').html(response);
-                                    }
-                                });
-                            } else {
-                                $('#distrik').html('<option value="">Pilih Distrik</option>');
-                            }
-                        });
-                    });
-                </script>
-
 
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="ekspedisi">Ekspedisi</label>
-                        <select name="ekspedisi" id="ekspedisi" class="form-control">
-                            <option value="">Pilih Ekspedisi</option>
-                            <!-- Opsi ekspedisi akan diisi melalui JavaScript -->
+                        <select readonly name="ekspedisi" id="Ekspedisi" class="form-control">
+                            <option value="" selected><?= $data2['ekspedisi'] ?></option>
                         </select>
                     </div>
                 </div>
+
                 <div class="col-12 col-md-3">
                     <div class="form-group">
                         <label for="paket">Paket</label>
-                        <select name="paket" id="paket" class="form-control">
-                            <option value="">Pilih Paket</option>
-                            <!-- Opsi paket akan diisi melalui JavaScript -->
+                        <select readonly name="paket" id="paket" class="form-control">
+                            <option value=""><?= $data2['paket'] ?></option>
                         </select>
                     </div>
                 </div>
-
             </div>
-            <div class="form-group" style="margin-top: 10px;">
 
-                <div class="row justify-content-between align-items-start g-2 mt-5">
-                    <div class="col-12">
-                        <h2>METODE PEMBAYARAN</h2>
-                    </div>
-                    <div class="col-12 col-md-3">
-                        <div class="form-group">
-                            <label for="metode">metode</label>
-                            <select name="metode" id="metode" class="form-control">
-                                <option value="" selected>Pilih Metode</option>
-                                <option value="Tranfer Bank">Tranfer Bank</option>
-                                <option value="COD">COD</option>
-                                <option value="E-Money">E-Money</option>
-                            </select>
-                        </div>
+            <div class="row justify-content-between align-items-start g-2 mt-5">
+                <div class="col-12">
+                    <h2>METODE PEMBAYARAN</h2>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="form-group">
+                        <label for="metode">Metode</label>
+                        <select readonly name="metode" id="metode" class="form-control">
+                            <option value="" selected><?= $data2['metode'] ?></option>
+                        </select>
                     </div>
                 </div>
-                <button class="btn" name="checkout" style="background-color:#008744; color:white">Checkout</button>
             </div>
+
+            <button class="btn" name="download" style="background-color:#008744; color:white" onclick="window.open('struk.php','_blank')">Cetak</button>
         </div>
     </section>
 </form>

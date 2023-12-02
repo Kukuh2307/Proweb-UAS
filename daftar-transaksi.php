@@ -22,7 +22,7 @@ $user = $_SESSION['Username'];
                 <?php
                 // query Select User
                 $no = 1;
-                $querySelect = mysqli_query($koneksi, "SELECT * FROM checkout
+                $querySelect = mysqli_query($koneksi, "SELECT checkout.id,checkout.subtotal AS subtotal,checkout.metode AS metode,checkout.paket AS paket,checkout.waktu AS waktu FROM checkout
                 JOIN pengguna ON checkout.id_user = pengguna.id
                 WHERE pengguna.nama_depan = '$user'");
                 if ($querySelect) {
@@ -54,7 +54,7 @@ $user = $_SESSION['Username'];
                             <td align="left">
                                 <!-- Add a download button -->
                                 <a href="<?= $url ?>/proses-download.php?msg=detail-transaksi&id=<?= $data['id'] ?>">
-                                    <div class="btn btn-success"><i class="fa-solid fa-download"></i> Download</div>
+                                    <div class="btn btn-warning"><i class="fa-solid fa-eye"></i> Detail Transaksi</div>
                                 </a>
                             </td>
                         </tr>

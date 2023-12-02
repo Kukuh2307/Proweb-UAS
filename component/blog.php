@@ -5,9 +5,9 @@ $querySelect = mysqli_query($koneksi, "SELECT * FROM section WHERE id = 3");
 $data = mysqli_fetch_assoc($querySelect);
 ?>
 <!-- blog -->
-<section id="blog" class="mb-0">
+<section id="blog" class="mb-0" style="padding: 3rem 0;">
     <div class="container">
-        <div class="title text-center py-5">
+        <div class="title text-center">
             <h1 class="position-relative d-inline-block"><?= $data['bagian'] ?></h1>
         </div>
 
@@ -20,7 +20,7 @@ $data = mysqli_fetch_assoc($querySelect);
                     <!-- https://source.unsplash.com/640x426?blogs -->
                     <img src="<?= $url ?>/img/<?= $data['foto'] ?>" alt="">
                     <div class="card-body px-0 d-flex flex-column">
-                        <h4 class="card-title"><?= $data['judul'] ?></h4>
+                        <h4 class="card-title" style="width: 90%;"><?= $data['judul'] ?></h4>
                         <p class="card-text mt-3 text-muted"><?= $data['tumbnail'] ?></p>
                         <p class="card-text mb-3">
                             <small class="text-muted">

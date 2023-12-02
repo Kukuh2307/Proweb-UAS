@@ -4,15 +4,15 @@ require_once '../PrakwebUas/component/navbar.php';
 
 ?>
 <section id="delivery-information" style="margin-bottom: 0px;">
-    <div class="container" style="margin-top: 6rem; text-align: justify">
+    <div class="container" style="margin-top: 6rem; text-align: justify; padding: 0; width: 100%;">
         <div class="row">
-            <div class="card-container">
+            <div class="card-container" style="display: flex; width: 100%;">
                 <?php
                 $querySelect = mysqli_query($koneksi, "SELECT * FROM barang ORDER BY id DESC");
                 while ($data = mysqli_fetch_array($querySelect)) {
                     $rating = $data['rating'];
                 ?>
-                    <div class="card">
+                    <div class="card ">
                         <img src="img/<?= $data['foto'] ?>" alt="<?= $data['nama'] ?>">
                         <h3><?= $data['nama'] ?></h3>
                         <div class="rating">
