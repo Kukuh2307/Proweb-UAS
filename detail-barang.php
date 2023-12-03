@@ -6,6 +6,7 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $querySelect = mysqli_query($koneksi, "SELECT * FROM barang WHERE id='$id'");
     $data = mysqli_fetch_assoc($querySelect);
+    $kategori = $data['kategori'];
 }
 ?>
 <section id="detail-barang" style="margin-bottom: 0px;">
@@ -46,11 +47,39 @@ if (isset($_GET['id'])) {
         </form>
 
         <!-- Baris Kedua -->
-        <div class="row mt-4">
-            <div class="col-md-12">
+        <div class="row mt-4" style="width: 65%;">
+            <div class=" col-md-12">
                 <h4>Deskripsi</h4>
                 <p><?= $data['deskripsi'] ?></p>
             </div>
+        </div>
+
+        <div class="card-container" style="display: flex; width: 100%; justify-content: space-around;">
+            <?php
+            $querySelect = mysqli_query($koneksi, "SELECT * FROM barang WHERE kategori='$kategori' LIMIT 3");
+            while ($data2 = mysqli_fetch_array($querySelect)) {
+                $rating = $data2['rating'];
+            ?>
+                <div class="card ">
+                    <img src="img/<?= $data2['foto'] ?>" alt="<?= $data2['nama'] ?>">
+                    <h3><?= $data2['nama'] ?></h3>
+                    <div class="rating">
+                        <?php
+                        for ($i = 0; $i < $data2['rating']; $i++) {
+                            echo '<span style="color: var(--color1);"><i class="fas fa-star"></i></span>';
+                        }
+                        for ($i = $data2['rating']; $i < 5; $i++) {
+                            echo '<span class="text-muted"><i class="fas fa-star"></i></span>';
+                        }
+                        ?>
+                    </div>
+                    <p>Stok : <?= $data2['stok'] ?></p>
+                    <p>Rp.<?= number_format($data2['harga']) ?>,.</p>
+                    <a href="<?= $url ?>/proses-support.php?msg=detail-barang&id=<?= $data2['id'] ?>"><button type="sumbit">Detail</button></a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
 </section>
