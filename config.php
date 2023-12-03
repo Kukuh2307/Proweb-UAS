@@ -31,7 +31,7 @@ function handleImageUpload($file)
                     // Return nama file gambar yang berhasil diupload
                     return $newFileName;
                 } else {
-                    return 'Error: Failed to move uploaded file.';
+                    return 'Error: Failed to move uploaded file.' . $destination;
                 }
             } else {
                 return 'Error: File size exceeds the limit (3MB).';
